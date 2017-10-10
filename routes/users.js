@@ -137,7 +137,7 @@ router.get('/logout', function(req, res){
 });
 
 // facebook authentication with passport
-router.get('/facebook', passport.authenticate('facebook'));
+router.get('/facebook', passport.authenticate('facebook', { scope: [ 'email' ] }));
 
 router.get('/facebook/callback', function(req, res, next){
     passport.authenticate('facebook', function(err, user, info){
