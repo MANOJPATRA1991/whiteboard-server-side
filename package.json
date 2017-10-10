@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "engines": {
-    "node": "4.1.1"
+    "node": "6.9.1"
   },
   "dependencies": {
     "agenda": "^0.9.1",
@@ -35,7 +35,6 @@
     "lodash": "^4.17.4",
     "mongoose": "^4.9.6",
     "morgan": "~1.7.0",
-    "node-tvdb": "^3.1.2",
     "nodemailer": "^4.0.1",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
