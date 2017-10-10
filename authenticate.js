@@ -32,10 +32,11 @@ exports.facebook = passport.use(new FacebookStrategy({
             if(!err && user !== null){
                 done(null, user);
             }else{
+                console.log(profile);
                 user = new User({
                     username: profile.displayName
                 });
-                user.email= profile.emails[0].value || '';
+                user.email= profile.email || '';
                 user.OauthId = profile.id;
                 user.OauthToken = accessToken;
                 user.picture = profile.picture;
