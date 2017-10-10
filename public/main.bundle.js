@@ -920,9 +920,7 @@ var CommentsComponent = (function () {
         this.blog.getBlogComments(this.blog_id)
             .subscribe(function (value) {
             // sort comments based on date time in increasing order
-            _this.comments = value.sort(function (a, b) {
-                return a.updatedAt - b.updatedAt;
-            });
+            _this.comments = value;
         });
     };
     /**
