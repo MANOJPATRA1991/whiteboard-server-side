@@ -436,7 +436,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/auth/auth.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"card card-1-1 col-xs-12\">\n      <div class=\"row\">\n        <div class=\"col-xs-12\">\n          <div  class=\"title col-xs-12\">\n            <p>Whiteboard</p>\n          </div>\n            <router-outlet></router-outlet>\n        </div>\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\n          <h5> or </h5>\n          <br>\n          <h4> Log in with </h4>\n          <a href=\"https://whiteboard-app.herokuapp.com/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"card card-1-1 col-xs-12\">\n      <div class=\"row\">\n        <div class=\"col-xs-12\">\n          <div  class=\"title col-xs-12\">\n            <p>Whiteboard</p>\n          </div>\n            <router-outlet></router-outlet>\n        </div>\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\n          <h5> or </h5>\n          <br>\n          <h4> Log in with </h4>\n          <a href=\"/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 

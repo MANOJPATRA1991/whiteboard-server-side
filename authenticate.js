@@ -32,7 +32,6 @@ exports.facebook = passport.use(new FacebookStrategy({
             if(!err && user !== null){
                 done(null, user);
             }else{
-                console.log(profile);
                 user = new User({
                     username: profile.displayName
                 });
