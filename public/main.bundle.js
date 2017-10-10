@@ -878,7 +878,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/comments/comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"formdiv col-xs-12\" *ngIf=\"auth.isLoggedIn\">\n  <form [formGroup]=\"commentForm\" class=\"form\" (ngSubmit)=\"post(commentForm.value)\">\n    <div class=\"form-group\">\n        <textarea rows=\"4\" cols=\"100\" type=\"text\" placeholder=\"Add comment\" [formControl]=\"comment\" id=\"comment\">\n        </textarea>\n    </div>\n    <button type=\"submit\" class=\"btn btn-success\">POST</button>\n  </form>\n</div>\n<div class=\"col-xs-12\" *ngFor=\"let comment of comments\">\n    <div class=\"card panel panel-default arrow left\">\n      <div class=\"panel-body\">\n        <header class=\"text-left\">\n          <div class=\"comment-user\"><i class=\"fa fa-user\"></i> {{comment.postedBy.username}}</div>\n          <time class=\"comment-date\" datetime=\"16-12-2014 01:05\"><i class=\"fa fa-clock-o\"></i> <em>{{comment.updatedAt | date: 'yMMMdjms'}}</em></time>\n        </header>\n        <hr/>\n        <div class=\"comment-post\">\n          <p>\n            {{comment.comment}}\n          </p>\n        </div>\n      </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"formdiv col-xs-12\" *ngIf=\"auth.isLoggedIn\">\n  <form [formGroup]=\"commentForm\" class=\"form\" (ngSubmit)=\"post(commentForm.value)\">\n    <div class=\"form-group\">\n        <textarea rows=\"4\" cols=\"100\" type=\"text\" placeholder=\"Add comment\" [formControl]=\"comment\" id=\"comment\">\n        </textarea>\n    </div>\n    <button type=\"submit\" class=\"btn btn-success\">POST</button>\n  </form>\n</div>\n<div class=\"col-xs-12\" *ngFor=\"let comment of comments\">\n    <div class=\"card panel panel-default arrow left\">\n      <div class=\"panel-body\">\n        <header class=\"text-left\">\n          <div class=\"comment-user\"><i class=\"fa fa-user\"></i> {{comment.postedBy}}</div>\n          <time class=\"comment-date\" datetime=\"16-12-2014 01:05\"><i class=\"fa fa-clock-o\"></i> <em>{{comment.updatedAt | date: 'yMMMdjms'}}</em></time>\n        </header>\n        <hr/>\n        <div class=\"comment-post\">\n          <p>\n            {{comment.comment}}\n          </p>\n        </div>\n      </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -920,9 +920,7 @@ var CommentsComponent = (function () {
         this.blog.getBlogComments(this.blog_id)
             .subscribe(function (value) {
             // sort comments based on date time in increasing order
-            _this.comments = value.sort(function (a, b) {
-                return new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime();
-            });
+            _this.comments = value;
         });
     };
     /**
