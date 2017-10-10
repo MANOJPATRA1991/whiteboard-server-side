@@ -1,6 +1,7 @@
 var express = require('express');
 var cors = require('cors');
 var path = require('path');
+var fs = require('fs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -25,6 +26,10 @@ db.once('open', function(){
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var blogs = require('./routes/blogs');
+var uploads = require('./routes/uploads');
+var bookmarks = require('./routes/bookmarks');
+var likedBlogs = require('./routes/likedBlogs');
 
 var app = express();
 
@@ -52,6 +57,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/blogs', blogs);
+app.use('/uploads', uploads);
+app.use('/bookmarks', bookmarks);
+app.use('/likedBlogs', likedBlogs);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

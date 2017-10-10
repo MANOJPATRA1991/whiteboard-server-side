@@ -45,10 +45,6 @@ User.methods.getName = function(){
     return (this.firstname + ' ' + this.lastname);
 }
 
-// User.methods.comparePassword= function(password){
-//     return bcrypt.compareSync(password, this.password);
-// }
-
 User.plugin(passportLocalMongoose);
 
 var User = mongoose.model('User', User);

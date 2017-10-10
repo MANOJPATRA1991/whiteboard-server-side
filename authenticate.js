@@ -21,10 +21,10 @@ exports.facebook = passport.use(new FacebookStrategy({
     callbackURL: config.facebook.callbackURL,
     profileFields: config.facebook.profileFields
 }, function(accessToken, refreshToken, profile, done){
-    
+
     // asynchronous
     process.nextTick(function() {
-        
+
         User.findOne({OauthId: profile.id}, function(err, user){
             if(err){
                 console.log(err); //handle errors!
