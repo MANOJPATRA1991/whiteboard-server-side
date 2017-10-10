@@ -158,7 +158,7 @@ router.get('/facebook/callback', function(req, res, next){
             user.isVerified = true;
             var token = Verify.getToken({"username":user.username, "_id":user._id, "admin":user.admin});
 
-            res.redirect(303, 'https://whiteboard-app.herokuapp.com/?token=' + token + '&user=' + user.username + '&_id=' + user._id + '&isVerified=' + user.isVerified);
+            res.redirect(303, 'http://localhost:3000/?token=' + token + '&user=' + user.username + '&_id=' + user._id + '&isVerified=' + user.isVerified);
         });
     })(req, res, next);
 });
