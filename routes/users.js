@@ -34,7 +34,7 @@ router.post('/register', function(req, res, next){
             if(err.code === 11000){
                 return res.status(500).json({err: "Email id already registered. Continue to log in"});
             }
-            return res.status(500).json({err: err});
+            return res.status(500).json({err: 'Usernam or password is invalid. Go to signup page if not registered.'});
         }
 
         if(req.body.firstname){
@@ -158,7 +158,7 @@ router.get('/facebook/callback', function(req, res, next){
             user.isVerified = true;
             var token = Verify.getToken({"username":user.username, "_id":user._id, "admin":user.admin});
 
-            res.redirect(303, 'http://localhost:3000?token=' + token + '&user=' + user.username + '&_id=' + user._id + '&isVerified=' + user.isVerified);
+            res.redirect(303, 'https://whiteboard-app.herokuapp.com/?token=' + token + '&user=' + user.username + '&_id=' + user._id + '&isVerified=' + user.isVerified);
         });
     })(req, res, next);
 });
