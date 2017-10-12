@@ -5,7 +5,7 @@ module.exports = {
         //App ID
         clientID: "2001884613356439",
         clientSecret: "a01a7bc3d1e742eed3b1c665d905797f",
-        callbackURL: "http://localhost:3000/users/facebook/callback",
+        callbackURL: "http://whiteboard-app.herokuapp.com/users/facebook/callback",
         profileFields: ['displayName', 'email', 'name'],
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     }
