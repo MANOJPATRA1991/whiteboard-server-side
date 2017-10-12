@@ -2846,7 +2846,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var baseURL = "https://whiteboard-app.herokuapp.com";
+var baseURL = "http://localhost:3000";
 var BlogServerService = (function () {
     function BlogServerService(http, route, auth) {
         this.http = http;
@@ -3173,7 +3173,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var baseURL = "https://whiteboard-app.herokuapp.com";
+var baseURL = "http://localhost:3000";
 var UserAuthService = (function () {
     function UserAuthService(http, route, local) {
         this.http = http;
