@@ -1,10 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// var mongoose = require('mongoose');
 
 var fs = require('fs');
-// var Blog = require('../models/blog');
-// var Verify = require('./verify');
 
 // import froala sdk
 var FroalaEditor = require('../node_modules/wysiwyg-editor-node-sdk/lib/froalaEditor.js');
