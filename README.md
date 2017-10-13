@@ -1,5 +1,5 @@
 # whiteboard-server-side
-The server side of whiteboard blog MEAN app
+The final build along with server-side implementation of whiteboard blog MEAN app. The front-end code for this project is available for review [here](https://github.com/MANOJPATRA1991/whiteboard).
 
 # Installation and Testing
 
@@ -16,13 +16,13 @@ Then reload the web page to continue.
 
 # References
 
-1. [NodeJS]
-2. [ExpressJS]
-3. [Mongo DB]
-4. [Mongoose]
-5. [Angular 4]
-6. [ngBootstrap]
-7. [Bootstrap 3.3.7]
+1. [NodeJS](https://nodejs.org/)
+2. [ExpressJS](https://expressjs.com/)
+3. [Mongo DB](https://www.mongodb.com/)
+4. [Mongoose](mongoosejs.com/)
+5. [Angular 4](https://angular.io/)
+6. [ngBootstrap](https://ng-bootstrap.github.io/)
+7. [Bootstrap](getbootstrap.com/docs/3.3/)
 
 # License
 
