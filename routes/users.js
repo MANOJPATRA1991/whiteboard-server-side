@@ -137,29 +137,31 @@ router.get('/logout', function(req, res){
 });
 
 // facebook authentication with passport
-router.get('/facebook', passport.authenticate('facebook'));
+router.get('/facebook', passport.authenticate('facebook', { scope: [ 'email' ] }));
 
 router.get('/facebook/callback', function(req, res, next){
     passport.authenticate('facebook', function(err, user, info){
         if(err){
-            return next(err);
+          next(err);
         }
-        if(!user){
+        else if(!user){
             return res.status(401).json({
                 err: info
             });
         }
-        req.logIn(user, function(err){
+        else{
+          req.logIn(user, function(err){
             if(err){
                 return res.status(500).json({
-                    err: 'Could not log in user'
+                    err: 'Could not log in user. Please try again later.'
                 });
             }
             user.isVerified = true;
             var token = Verify.getToken({"username":user.username, "_id":user._id, "admin":user.admin});
 
             res.redirect(303, 'http://localhost:3000/?token=' + token + '&user=' + user.username + '&_id=' + user._id + '&isVerified=' + user.isVerified);
-        });
+          });
+        }
     })(req, res, next);
 });
 

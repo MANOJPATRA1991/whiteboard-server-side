@@ -436,7 +436,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/auth/auth.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"card card-1-1 col-xs-12\">\n      <div class=\"row\">\n        <div class=\"col-xs-12\">\n          <div  class=\"title col-xs-12\">\n            <p>Whiteboard</p>\n          </div>\n            <router-outlet></router-outlet>\n        </div>\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\n          <h5> or </h5>\n          <br>\n          <h4> Log in with </h4>\n          <a href=\"/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"card card-1-1 col-xs-12\">\n      <div class=\"row\">\n        <div class=\"col-xs-12\">\n          <div  class=\"title col-xs-12\">\n            <p>Whiteboard</p>\n          </div>\n            <p class=\"alertError\" *ngIf=\"message !== ''\">{{ message }}</p>\n            <router-outlet></router-outlet>\n        </div>\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\n          <h5> or </h5>\n          <br>\n          <h4> Log in with </h4>\n          <a href=\"http://localhost:3000/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -458,17 +458,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AuthComponent = (function () {
-    function AuthComponent(router) {
+    function AuthComponent(router, actRoute) {
         this.router = router;
+        this.actRoute = actRoute;
     }
     AuthComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // get param err from route
+        this.sub = this.actRoute.queryParams.subscribe(function (params) {
+            _this.err = +params['err'];
+        });
+        if (this.err === 11000) {
+            this.message = "You have registered manually with the same email id. \
+      You cannot re-register with facebook. Please log in with username and password.";
+        }
     };
     /**
      * Toggle visibilit of social login buttons
      */
     AuthComponent.prototype.showSocialLogin = function () {
-        if (this.router.url === '/auth/login') {
+        if (this.router.url.startsWith('/auth/login')) {
             return true;
         }
         else {
@@ -483,10 +494,10 @@ AuthComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/auth/auth.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/auth/auth.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
 ], AuthComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=auth.component.js.map
 
 /***/ }),
@@ -708,7 +719,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container-fluid {\r\n    margin: 0 auto;\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.blogCard {\r\n    margin: 10px;\r\n    word-wrap: break-word;\r\n    width: 40%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 5px 0;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.col-centered {\r\n    float: none;\r\n    margin: 0 auto;\r\n}\r\n\r\n.center-block {\r\n    float: none !important;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%;\r\n        margin: 10px auto;\r\n    }\r\n    .col-xs-12 {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 30px;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".container-fluid {\r\n    margin: 0 auto;\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.blogCard {\r\n    position: relative;\r\n    margin: 10px;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.col-centered {\r\n    float: none;\r\n    margin: 0 auto;\r\n}\r\n\r\n.center-block {\r\n    float: none !important;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%;\r\n        margin: 10px auto;\r\n    }\r\n    .col-xs-12 {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 30px;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -1099,6 +1110,7 @@ var CreateBlogComponent = (function () {
             toolbarButtonsSM: ['undo', 'redo'],
             toolbarButtonsMD: ['undo', 'redo'],
             placeholderText: "Title",
+            charCounterMax: 20,
             theme: 'royal',
             pluginsEnabled: [],
             events: {
@@ -1545,7 +1557,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container-fluid {\r\n    margin: 0 auto;\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.label {\r\n    position: absolute;\r\n    top: -5px;\r\n    right: -5px;\r\n}\r\n\r\n.title {\r\n    word-wrap: break-word;\r\n}\r\n\r\n.card-category {\r\n    margin: 10px 0;\r\n    width: 100%;\r\n    height: 50px;\r\n    padding: 15px;\r\n    background-color: white;\r\n    color: red;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\n.card-category:hover {\r\n    background-color: red;\r\n    color: white;\r\n}\r\n\r\n.blogCard {\r\n    word-wrap: break-word;\r\n    width: 40%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565; \r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".container-fluid {\r\n    margin: 0 auto;\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.label {\r\n    position: absolute;\r\n    top: -5px;\r\n    right: -5px;\r\n}\r\n\r\n.title {\r\n    word-wrap: break-word;\r\n}\r\n\r\n.card-category {\r\n    margin: 10px 0;\r\n    width: 100%;\r\n    height: 50px;\r\n    padding: 15px;\r\n    background-color: white;\r\n    color: red;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\n.card-category:hover {\r\n    background-color: red;\r\n    color: white;\r\n}\r\n\r\n.blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565; \r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -2359,7 +2371,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".blogCard {\r\n    word-wrap: break-word;\r\n    width: 40%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    margin-bottom: 0;\r\n    padding-left: 15px;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}", ""]);
+exports.push([module.i, ".blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    margin-bottom: 0;\r\n    padding-left: 15px;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}", ""]);
 
 // exports
 
@@ -2494,7 +2506,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".blogCard {\r\n    word-wrap: break-word;\r\n    width: 40%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.dropdown {\r\n    top: 20px;\r\n}\r\n\r\n.floatLeft {\r\n    float: left;\r\n}\r\n\r\n.floatRight {\r\n    float: right;\r\n}\r\n\r\n.clear {\r\n    clear: both;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.dropdown {\r\n    top: 20px;\r\n}\r\n\r\n.floatLeft {\r\n    float: left;\r\n}\r\n\r\n.floatRight {\r\n    float: right;\r\n}\r\n\r\n.clear {\r\n    clear: both;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
 
 // exports
 

@@ -27,7 +27,7 @@ exports.facebook = passport.use(new FacebookStrategy({
 
         User.findOne({OauthId: profile.id}, function(err, user){
             if(err){
-                console.log(err); //handle errors!
+                return {err: 'Cannot reach facebook server. Try after sometime'};
             }
             if(!err && user !== null){
                 done(null, user);
@@ -35,15 +35,14 @@ exports.facebook = passport.use(new FacebookStrategy({
                 user = new User({
                     username: profile.displayName
                 });
-                user.email= profile.email || '';
+                user.email= profile.emails[0].value || '';
                 user.OauthId = profile.id;
                 user.OauthToken = accessToken;
                 user.picture = profile.picture;
                 user.save(function(err){
                     if(err){
-                        console.log(err); //handle errors
+                        return err;
                     }else{
-                        console.log("saving user ...");
                         done(null, user);
                     }
                 });
