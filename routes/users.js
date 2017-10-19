@@ -142,8 +142,8 @@ router.get('/facebook', passport.authenticate('facebook', { scope: [ 'email' ] }
 router.get('/facebook/callback', function(req, res, next){
     passport.authenticate('facebook', function(err, user, info){
         if(err){
-          next(err);
-        }
+          res.redirect(303, 'http://localhost:4200/auth/login?err=' + 11000);
+        }s
         else if(!user){
             return res.status(401).json({
                 err: info
