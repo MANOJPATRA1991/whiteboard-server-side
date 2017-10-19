@@ -146,12 +146,14 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_alert_alert_module__ = __webpack_require__("../../../../../src/app/components/alert/alert.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_edit_blog_edit_blog_module__ = __webpack_require__("../../../../../src/app/components/edit-blog/edit-blog.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -204,7 +206,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_7__services_local_storage_service__["a" /* LocalStorageService */],
             __WEBPACK_IMPORTED_MODULE_8__guards_activate_guard__["a" /* ActivateGuard */],
             __WEBPACK_IMPORTED_MODULE_9__guards_deactivate_guard__["a" /* DeactivateGuard */],
-            __WEBPACK_IMPORTED_MODULE_19__services_alert_service__["a" /* AlertService */]
+            __WEBPACK_IMPORTED_MODULE_19__services_alert_service__["a" /* AlertService */],
+            { provide: __WEBPACK_IMPORTED_MODULE_21__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_21__angular_common__["d" /* HashLocationStrategy */] }
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
