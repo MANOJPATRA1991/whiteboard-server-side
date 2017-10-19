@@ -142,7 +142,7 @@ router.get('/facebook', passport.authenticate('facebook', { scope: [ 'email' ] }
 router.get('/facebook/callback', function(req, res, next){
     passport.authenticate('facebook', function(err, user, info){
         if(err){
-          res.redirect(303, 'https://whiteboard-app.herokuapp.com/auth/login?err=' + 11000);
+          res.redirect(303, 'https://whiteboard-app.herokuapp.com/#/auth/login?err=' + 11000);
         }
         else if(!user){
             return res.status(401).json({
@@ -159,7 +159,7 @@ router.get('/facebook/callback', function(req, res, next){
             user.isVerified = true;
             var token = Verify.getToken({"username":user.username, "_id":user._id, "admin":user.admin});
 
-            res.redirect(303, 'https://whiteboard-app.herokuapp.com/?token=' + token + '&user=' + user.username + '&_id=' + user._id + '&isVerified=' + user.isVerified);
+            res.redirect(303, 'https://whiteboard-app.herokuapp.com/#/home?token=' + token + '&user=' + user.username + '&_id=' + user._id + '&isVerified=' + user.isVerified);
           });
         }
     })(req, res, next);
