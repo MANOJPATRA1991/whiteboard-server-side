@@ -41,7 +41,7 @@ exports.facebook = passport.use(new FacebookStrategy({
                 user.picture = profile.picture;
                 user.save(function(err){
                     if(err){
-                        return err;
+                        done(err);
                     }else{
                         done(null, user);
                     }
