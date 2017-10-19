@@ -142,7 +142,7 @@ router.get('/facebook', passport.authenticate('facebook', { scope: [ 'email' ] }
 router.get('/facebook/callback', function(req, res, next){
     passport.authenticate('facebook', function(err, user, info){
         if(err){
-          next(err);
+          res.redirect(303, 'https://whiteboard-app.herokuapp.com/auth/login?err=' + 11000);
         }
         else if(!user){
             return res.status(401).json({
