@@ -1919,14 +1919,14 @@ var LoginComponent = (function () {
                 observer.next(_this.auth.message);
             }, 1000);
         });
-        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) {
-            _this.error = error;
-            _this.loading = false;
-            _this.loginForm.enable();
-        });
+        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) { return _this.error = error; });
         this.auth.login(model);
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
+        }
+        if (this.error !== '') {
+            this.loading = false;
+            this.loginForm.enable();
         }
     };
     LoginComponent.prototype.gotoSignUp = function () {
