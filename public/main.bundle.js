@@ -1917,13 +1917,13 @@ var LoginComponent = (function () {
                 observer.next(_this.auth.message);
             }, 1000);
         });
-        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) { return _this.error = error; });
+        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) {
+            _this.error = error;
+            _this.loginForm.enable();
+        });
         this.auth.login(model);
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
-        }
-        else {
-            this.loginForm.enable();
         }
     };
     LoginComponent.prototype.gotoSignUp = function () {
