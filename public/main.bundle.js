@@ -447,7 +447,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/auth/auth.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"card card-1-1 col-xs-12\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div  class=\"title col-xs-12\">\r\n            <p>Whiteboard</p>\r\n          </div>\r\n            <p class=\"alertError\" *ngIf=\"message !== ''\">{{ message }}</p>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\r\n          <h5> or </h5>\r\n          <br>\r\n          <h4> Log in with </h4>\r\n          <a href=\"http://localhost:3000/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\r\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"card card-1-1 col-xs-12\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div  class=\"title col-xs-12\">\r\n            <p>Whiteboard</p>\r\n          </div>\r\n            <p class=\"alertError\" *ngIf=\"message !== ''\">{{ message }}</p>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\r\n          <h5> or </h5>\r\n          <br>\r\n          <h4> Log in with </h4>\r\n          <a href=\"https://whiteboard-app.herokuapp.com/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\r\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2994,7 +2994,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var baseURL = "http://localhost:3000";
+var baseURL = "https://whiteboard-app.herokuapp.com";
 var BlogServerService = (function () {
     function BlogServerService(http, route, auth) {
         this.http = http;
@@ -3321,7 +3321,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var baseURL = "http://localhost:3000";
+var baseURL = "https://whiteboard-app.herokuapp.com";
 var UserAuthService = (function () {
     function UserAuthService(http, route, local) {
         this.http = http;
