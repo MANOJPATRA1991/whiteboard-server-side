@@ -70,6 +70,7 @@ var AppComponent = (function () {
         this.route = route;
         this.blog = blog;
         this.title = 'app';
+        this.isLoading = false;
     }
     AppComponent.prototype.ngOnInit = function () {
         this.getCategories();
@@ -106,6 +107,10 @@ var AppComponent = (function () {
     };
     return AppComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], AppComponent.prototype, "isLoading", void 0);
 AppComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
@@ -127,32 +132,34 @@ var _a, _b, _c;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nav_nav_module__ = __webpack_require__("../../../../../src/app/components/nav/nav.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_home_home_module__ = __webpack_require__("../../../../../src/app/components/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_user_auth_service__ = __webpack_require__("../../../../../src/app/services/user-auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_local_storage_service__ = __webpack_require__("../../../../../src/app/services/local-storage.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guards_activate_guard__ = __webpack_require__("../../../../../src/app/guards/activate.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__guards_deactivate_guard__ = __webpack_require__("../../../../../src/app/guards/deactivate.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_blog_detail_blog_detail_module__ = __webpack_require__("../../../../../src/app/components/blog-detail/blog-detail.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categories_categories_module__ = __webpack_require__("../../../../../src/app/components/categories/categories.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_user_user_module__ = __webpack_require__("../../../../../src/app/components/user/user.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_user_bookmark_user_bookmark_module__ = __webpack_require__("../../../../../src/app/components/user-bookmark/user-bookmark.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_blog_server_service__ = __webpack_require__("../../../../../src/app/services/blog-server.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_sidebar_sidebar_module__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_categories_service__ = __webpack_require__("../../../../../src/app/services/categories.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_alert_alert_module__ = __webpack_require__("../../../../../src/app/components/alert/alert.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_edit_blog_edit_blog_module__ = __webpack_require__("../../../../../src/app/components/edit-blog/edit-blog.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_nav_nav_module__ = __webpack_require__("../../../../../src/app/components/nav/nav.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_home_home_module__ = __webpack_require__("../../../../../src/app/components/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_user_auth_service__ = __webpack_require__("../../../../../src/app/services/user-auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_local_storage_service__ = __webpack_require__("../../../../../src/app/services/local-storage.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__guards_activate_guard__ = __webpack_require__("../../../../../src/app/guards/activate.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__guards_deactivate_guard__ = __webpack_require__("../../../../../src/app/guards/deactivate.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_blog_detail_blog_detail_module__ = __webpack_require__("../../../../../src/app/components/blog-detail/blog-detail.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_categories_categories_module__ = __webpack_require__("../../../../../src/app/components/categories/categories.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_user_user_module__ = __webpack_require__("../../../../../src/app/components/user/user.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_user_bookmark_user_bookmark_module__ = __webpack_require__("../../../../../src/app/components/user-bookmark/user-bookmark.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_blog_server_service__ = __webpack_require__("../../../../../src/app/services/blog-server.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sidebar_sidebar_module__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_categories_service__ = __webpack_require__("../../../../../src/app/services/categories.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_alert_alert_module__ = __webpack_require__("../../../../../src/app/components/alert/alert.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_edit_blog_edit_blog_module__ = __webpack_require__("../../../../../src/app/components/edit-blog/edit-blog.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_loader_loader_module__ = __webpack_require__("../../../../../src/app/components/loader/loader.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -183,33 +190,34 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_17__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__components_nav_nav_module__["a" /* NavModule */],
-            __WEBPACK_IMPORTED_MODULE_5__components_home_home_module__["a" /* HomeModule */],
-            __WEBPACK_IMPORTED_MODULE_4__app_routing__["a" /* routing */],
-            __WEBPACK_IMPORTED_MODULE_15__components_sidebar_sidebar_module__["a" /* SidebarModule */],
-            __WEBPACK_IMPORTED_MODULE_11__components_categories_categories_module__["a" /* CategoriesModule */],
-            __WEBPACK_IMPORTED_MODULE_12__components_user_user_module__["a" /* UserModule */],
-            __WEBPACK_IMPORTED_MODULE_13__components_user_bookmark_user_bookmark_module__["a" /* UserBookmarkModule */],
-            __WEBPACK_IMPORTED_MODULE_10__components_blog_detail_blog_detail_module__["a" /* BlogDetailModule */],
-            __WEBPACK_IMPORTED_MODULE_18__components_alert_alert_module__["a" /* AlertModule */],
-            __WEBPACK_IMPORTED_MODULE_20__components_edit_blog_edit_blog_module__["a" /* EditBlogModule */]
+            __WEBPACK_IMPORTED_MODULE_5__components_nav_nav_module__["a" /* NavModule */],
+            __WEBPACK_IMPORTED_MODULE_7__components_home_home_module__["a" /* HomeModule */],
+            __WEBPACK_IMPORTED_MODULE_6__app_routing__["a" /* routing */],
+            __WEBPACK_IMPORTED_MODULE_17__components_sidebar_sidebar_module__["a" /* SidebarModule */],
+            __WEBPACK_IMPORTED_MODULE_13__components_categories_categories_module__["a" /* CategoriesModule */],
+            __WEBPACK_IMPORTED_MODULE_14__components_user_user_module__["a" /* UserModule */],
+            __WEBPACK_IMPORTED_MODULE_15__components_user_bookmark_user_bookmark_module__["a" /* UserBookmarkModule */],
+            __WEBPACK_IMPORTED_MODULE_12__components_blog_detail_blog_detail_module__["a" /* BlogDetailModule */],
+            __WEBPACK_IMPORTED_MODULE_19__components_alert_alert_module__["a" /* AlertModule */],
+            __WEBPACK_IMPORTED_MODULE_21__components_edit_blog_edit_blog_module__["a" /* EditBlogModule */],
+            __WEBPACK_IMPORTED_MODULE_22__components_loader_loader_module__["a" /* LoaderModule */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_16__services_categories_service__["a" /* CategoriesService */],
-            __WEBPACK_IMPORTED_MODULE_14__services_blog_server_service__["a" /* BlogServerService */],
-            __WEBPACK_IMPORTED_MODULE_6__services_user_auth_service__["a" /* UserAuthService */],
-            __WEBPACK_IMPORTED_MODULE_7__services_local_storage_service__["a" /* LocalStorageService */],
-            __WEBPACK_IMPORTED_MODULE_8__guards_activate_guard__["a" /* ActivateGuard */],
-            __WEBPACK_IMPORTED_MODULE_9__guards_deactivate_guard__["a" /* DeactivateGuard */],
-            __WEBPACK_IMPORTED_MODULE_19__services_alert_service__["a" /* AlertService */],
-            { provide: __WEBPACK_IMPORTED_MODULE_21__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_21__angular_common__["d" /* HashLocationStrategy */] }
+            __WEBPACK_IMPORTED_MODULE_18__services_categories_service__["a" /* CategoriesService */],
+            __WEBPACK_IMPORTED_MODULE_16__services_blog_server_service__["a" /* BlogServerService */],
+            __WEBPACK_IMPORTED_MODULE_8__services_user_auth_service__["a" /* UserAuthService */],
+            __WEBPACK_IMPORTED_MODULE_9__services_local_storage_service__["a" /* LocalStorageService */],
+            __WEBPACK_IMPORTED_MODULE_10__guards_activate_guard__["a" /* ActivateGuard */],
+            __WEBPACK_IMPORTED_MODULE_11__guards_deactivate_guard__["a" /* DeactivateGuard */],
+            __WEBPACK_IMPORTED_MODULE_20__services_alert_service__["a" /* AlertService */],
+            { provide: __WEBPACK_IMPORTED_MODULE_3__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_3__angular_common__["d" /* HashLocationStrategy */] }
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -324,7 +332,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/alert/alert.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"alert\" *ngIf=\"message\" [ngClass]=\"{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }\">\n  {{message.text}}\n</div>"
+module.exports = "<div id=\"alert\" *ngIf=\"message\" [ngClass]=\"{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }\">\r\n  {{message.text}}\r\n</div>"
 
 /***/ }),
 
@@ -439,7 +447,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/auth/auth.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"card card-1-1 col-xs-12\">\n      <div class=\"row\">\n        <div class=\"col-xs-12\">\n          <div  class=\"title col-xs-12\">\n            <p>Whiteboard</p>\n          </div>\n            <p class=\"alertError\" *ngIf=\"message !== ''\">{{ message }}</p>\n            <router-outlet></router-outlet>\n        </div>\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\n          <h5> or </h5>\n          <br>\n          <h4> Log in with </h4>\n          <a href=\"https://whiteboard-app.herokuapp.com/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"card card-1-1 col-xs-12\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div  class=\"title col-xs-12\">\r\n            <p>Whiteboard</p>\r\n          </div>\r\n            <p class=\"alertError\" *ngIf=\"message !== ''\">{{ message }}</p>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\r\n          <h5> or </h5>\r\n          <br>\r\n          <h4> Log in with </h4>\r\n          <a href=\"http://localhost:3000/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\r\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -571,7 +579,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/blog-detail/blog-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <li><a routerLink=\"/home\">Home</a></li>\n    <li><a routerLink=\"/blog/{{detail?.category}}\">{{detail?.category}}</a></li>\n    <li></li>\n</ol>\n<div class=\"container\">\n  <div class=\"row\">\n    <div *ngIf=\"error\" class=\"message col-xs-12\">{{detail}}</div>\n    <div *ngIf=\"!error\" class=\"col-xs-12\">\n      <span class=\"title\" [innerHTML]=\"detail?.title\"></span>\n      <ul class=\"float1\">\n        <li class=\"buttons\">\n            <button id=\"bookmark\" (click)=\"toggleBookmarkBlog()\">\n              <i class=\"fa fa-bookmark-o\" aria-hidden=\"true\"></i>\n              <span class=\"label label-success\">{{ bookmarks }}</span>\n            </button>  \n        </li>\n        <li class=\"buttons\">\n            <button id=\"likes\" (click)=\"toggleLike()\">\n              <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>\n              <span class=\"label btn-metis-4\">{{ likes }}</span>\n            </button>\n        </li>\n      </ul>\n      <ul class=\"float2\">\n        <li class=\"auth\">\n          By {{detail?.author}}, {{detail?.updatedAt | date: 'yMMMd'}}\n        </li>\n      </ul>\n      <hr class=\"clear\"/>\n      <span class=\"content\" [innerHTML]=\"detail?.content\"></span>\n\n      <hr />\n    </div>\n    <div class=\"col-xs-12\">\n      <h4 class=\"discuss\">Discussions</h4>\n      <app-comments [blog_id]=\"id\"></app-comments>  \n    </div>  \n  </div>  \n</div>\n"
+module.exports = "<ol class=\"breadcrumb\">\r\n    <li><a routerLink=\"/home\">Home</a></li>\r\n    <li><a routerLink=\"/blog/{{detail?.category}}\">{{detail?.category}}</a></li>\r\n    <li></li>\r\n</ol>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div *ngIf=\"error\" class=\"message col-xs-12\">{{detail}}</div>\r\n    <div *ngIf=\"!error\" class=\"col-xs-12\">\r\n      <span class=\"title\" [innerHTML]=\"detail?.title\"></span>\r\n      <ul class=\"float1\">\r\n        <li class=\"buttons\">\r\n            <button id=\"bookmark\" (click)=\"toggleBookmarkBlog()\">\r\n              <i class=\"fa fa-bookmark-o\" aria-hidden=\"true\"></i>\r\n              <span class=\"label label-success\">{{ bookmarks }}</span>\r\n            </button>  \r\n        </li>\r\n        <li class=\"buttons\">\r\n            <button id=\"likes\" (click)=\"toggleLike()\">\r\n              <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>\r\n              <span class=\"label btn-metis-4\">{{ likes }}</span>\r\n            </button>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"float2\">\r\n        <li class=\"auth\">\r\n          By {{detail?.author}}, {{detail?.updatedAt | date: 'yMMMd'}}\r\n        </li>\r\n      </ul>\r\n      <hr class=\"clear\"/>\r\n      <span class=\"content\" [innerHTML]=\"detail?.content\"></span>\r\n\r\n      <hr />\r\n    </div>\r\n    <div class=\"col-xs-12\">\r\n      <h4 class=\"discuss\">Discussions</h4>\r\n      <app-comments [blog_id]=\"id\"></app-comments>  \r\n    </div>  \r\n  </div>  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -735,7 +743,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/categories/categories.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <li><a routerLink=\"/home\">Home</a></li>\n    <li>{{category}}</li>\n</ol>\n<div class=\"container-fluid\">\n    <div class=\"row\" align=\"center\">\n        <div class=\"col-xs-12\">\n            <p class=\"message\" *ngIf=\"message !== ''\">{{ message }}</p>\n            <span *ngFor=\"let blog of blogs\">\n                <div class=\"blogs blogCard card\" (click)=\"blogDetail(blog)\">\n                    <h2 [innerHTML]=\"blog?.title\"></h2>\n                    <div class=\"foot\">\n                        <p>{{blog?.category}}</p>\n                        <p>{{blog?.author}}</p>\n                        <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\n                    </div>\n                </div> \n            </span> \n        </div>\n        <div class=\"col-xs-12\" align=\"center\">\n            <ngb-pagination [collectionSize]=\"count\" [(page)]=\"page\" [maxSize]=\"5\" \n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getBlogDetails(category, $event)\"></ngb-pagination>                \n        </div>\n    </div>  \n</div>"
+module.exports = "<ol class=\"breadcrumb\">\r\n    <li><a routerLink=\"/home\">Home</a></li>\r\n    <li>{{category}}</li>\r\n</ol>\r\n<div class=\"container-fluid\">\r\n    <div class=\"row\" align=\"center\">\r\n        <div class=\"col-xs-12\">\r\n            <p class=\"message\" *ngIf=\"message !== ''\">{{ message }}</p>\r\n            <span *ngFor=\"let blog of blogs\">\r\n                <div class=\"blogs blogCard card\" (click)=\"blogDetail(blog)\">\r\n                    <h2 [innerHTML]=\"blog?.title\"></h2>\r\n                    <div class=\"foot\">\r\n                        <p>{{blog?.category}}</p>\r\n                        <p>{{blog?.author}}</p>\r\n                        <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\r\n                    </div>\r\n                </div> \r\n            </span> \r\n        </div>\r\n        <div class=\"col-xs-12\" align=\"center\">\r\n            <ngb-pagination [collectionSize]=\"count\" [(page)]=\"page\" [maxSize]=\"5\" \r\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getBlogDetails(category, $event)\"></ngb-pagination>                \r\n        </div>\r\n    </div>  \r\n</div>"
 
 /***/ }),
 
@@ -897,7 +905,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/comments/comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"formdiv col-xs-12\" *ngIf=\"auth.isLoggedIn\">\n  <form [formGroup]=\"commentForm\" class=\"form\" (ngSubmit)=\"post(commentForm.value)\">\n    <div class=\"form-group\">\n        <textarea rows=\"4\" cols=\"100\" type=\"text\" placeholder=\"Add comment\" [formControl]=\"comment\" id=\"comment\">\n        </textarea>\n    </div>\n    <button type=\"submit\" class=\"btn btn-success\">POST</button>\n  </form>\n</div>\n<div class=\"col-xs-12\" *ngFor=\"let comment of comments\">\n    <div class=\"card panel panel-default arrow left\">\n      <div class=\"panel-body\">\n        <header class=\"text-left\">\n          <div class=\"comment-user\"><i class=\"fa fa-user\"></i> {{comment.postedBy ? comment.postedBy.username : ''}}</div>\n          <time class=\"comment-date\" datetime=\"16-12-2014 01:05\"><i class=\"fa fa-clock-o\"></i> <em>{{comment.updatedAt | date: 'yMMMdjms'}}</em></time>\n        </header>\n        <hr/>\n        <div class=\"comment-post\">\n          <p>\n            {{comment.comment}}\n          </p>\n        </div>\n      </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"formdiv col-xs-12\" *ngIf=\"auth.isLoggedIn\">\r\n  <form [formGroup]=\"commentForm\" class=\"form\" (ngSubmit)=\"post(commentForm.value)\">\r\n    <div class=\"form-group\">\r\n        <textarea rows=\"4\" cols=\"100\" type=\"text\" placeholder=\"Add comment\" [formControl]=\"comment\" id=\"comment\">\r\n        </textarea>\r\n    </div>\r\n    <button type=\"submit\" class=\"btn btn-success\">POST</button>\r\n  </form>\r\n</div>\r\n<div class=\"col-xs-12\" *ngFor=\"let comment of comments\">\r\n    <div class=\"card panel panel-default arrow left\">\r\n      <div class=\"panel-body\">\r\n        <header class=\"text-left\">\r\n          <div class=\"comment-user\"><i class=\"fa fa-user\"></i> {{comment.postedBy ? comment.postedBy.username : ''}}</div>\r\n          <time class=\"comment-date\" datetime=\"16-12-2014 01:05\"><i class=\"fa fa-clock-o\"></i> <em>{{comment.updatedAt | date: 'yMMMdjms'}}</em></time>\r\n        </header>\r\n        <hr/>\r\n        <div class=\"comment-post\">\r\n          <p>\r\n            {{comment.comment}}\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1307,7 +1315,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/edit-blog/edit-blog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <!-- <div class=\"border-menu\" (click)=\"toggleNav()\">Hide Menu</div> -->\n    <div class=\"row\">\n        <p *ngIf=\"showError\">{{ message }}</p>\n        <div class=\"col-xs-12\">\n            <div *ngIf=\"!setPreview\" class=\"col-xs-12\">\n                <div class=\"form-group form-inline\">\n                    <label for=\"sel1\">Select category: </label>\n                    <select class=\"form-control\" id=\"sel1\" [(ngModel)]=\"title\" (ngModelChange)=\"setTitle(title)\">\n                        <option *ngFor=\"let category of categories\" [ngValue]=\"category.name\">{{ category.name }}</option>\n                    </select>\n                </div>\n                <div style=\"font-size: 50px;\" [froalaEditor]=\"optionsTitle\" [(froalaModel)]=\"titleContent\"></div>\n                <div [froalaEditor]=\"options\" [(froalaModel)]=\"editorContent\"></div>\n                <br>\n            </div>    \n            <div *ngIf=\"setPreview\" class=\"col-xs-12 col-md-2\">\n                <div data-spy=\"affix\" data-offset-top=\"100\" data-offset-bottom=\"200\" class=\"back col-xs-4 col-md-12\">\n                    <button class=\"modButton btn btn-primary\" (click)=\"togglePreview()\">\n                        <span class=\"glyphicon glyphicon-chevron-left\"></span> Back </button>\n                </div>\n            </div>\n            <div *ngIf=\"setPreview\" class=\"col-xs-12 col-md-10\">\n                <div class=\"title\" [froalaView]=\"titleContent\"></div>\n                <div class=\"content\" [froalaView]=\"editorContent\"></div>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
+module.exports = "<div class=\"container\">\r\n    <!-- <div class=\"border-menu\" (click)=\"toggleNav()\">Hide Menu</div> -->\r\n    <div class=\"row\">\r\n        <p *ngIf=\"showError\">{{ message }}</p>\r\n        <div class=\"col-xs-12\">\r\n            <div *ngIf=\"!setPreview\" class=\"col-xs-12\">\r\n                <div class=\"form-group form-inline\">\r\n                    <label for=\"sel1\">Select category: </label>\r\n                    <select class=\"form-control\" id=\"sel1\" [(ngModel)]=\"title\" (ngModelChange)=\"setTitle(title)\">\r\n                        <option *ngFor=\"let category of categories\" [ngValue]=\"category.name\">{{ category.name }}</option>\r\n                    </select>\r\n                </div>\r\n                <div style=\"font-size: 50px;\" [froalaEditor]=\"optionsTitle\" [(froalaModel)]=\"titleContent\"></div>\r\n                <div [froalaEditor]=\"options\" [(froalaModel)]=\"editorContent\"></div>\r\n                <br>\r\n            </div>    \r\n            <div *ngIf=\"setPreview\" class=\"col-xs-12 col-md-2\">\r\n                <div data-spy=\"affix\" data-offset-top=\"100\" data-offset-bottom=\"200\" class=\"back col-xs-4 col-md-12\">\r\n                    <button class=\"modButton btn btn-primary\" (click)=\"togglePreview()\">\r\n                        <span class=\"glyphicon glyphicon-chevron-left\"></span> Back </button>\r\n                </div>\r\n            </div>\r\n            <div *ngIf=\"setPreview\" class=\"col-xs-12 col-md-10\">\r\n                <div class=\"title\" [froalaView]=\"titleContent\"></div>\r\n                <div class=\"content\" [froalaView]=\"editorContent\"></div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1573,7 +1581,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\" align=\"center\">\n    <div *ngIf=\"error\" class=\"message col-xs-12\">{{message}}</div>\n    <div class=\"blogs col-xs-12 col-sm-3\">\n        <app-sidebar *ngFor=\"let category of categories; let i = index\">\n            <div (click)=\"navCategories(category.name)\" class=\"card card-category col-xs-12\">\n              <p>{{ category.name }}</p>\n              <span class=\"label label-success\">{{count[i]}}</span>\n            </div>\n        </app-sidebar>\n    </div>\n    <div *ngIf=\"!error\" class=\"blogs col-xs-12 col-sm-9\">\n      <app-toplists *ngFor=\"let blog of blogArray\">\n        <div class=\"blogCard card\" (click)=\"blogDetail(blog)\">\n          <h2 class=\"title\" [innerHTML]=\"blog?.title\"></h2>\n          <div class=\"foot\">\n              <p>{{blog?.category}}</p>\n              <p>{{blog?.author}}</p>\n              <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\n          </div>\n        </div>\n      </app-toplists>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"row\" align=\"center\">\r\n    <div *ngIf=\"error\" class=\"message col-xs-12\">{{message}}</div>\r\n    <div class=\"blogs col-xs-12 col-sm-3\">\r\n        <app-sidebar *ngFor=\"let category of categories; let i = index\">\r\n            <div (click)=\"navCategories(category.name)\" class=\"card card-category col-xs-12\">\r\n              <p>{{ category.name }}</p>\r\n              <span class=\"label label-success\">{{count[i]}}</span>\r\n            </div>\r\n        </app-sidebar>\r\n    </div>\r\n    <div *ngIf=\"!error\" class=\"blogs col-xs-12 col-sm-9\">\r\n      <app-toplists *ngFor=\"let blog of blogArray\">\r\n        <div class=\"blogCard card\" (click)=\"blogDetail(blog)\">\r\n          <h2 class=\"title\" [innerHTML]=\"blog?.title\"></h2>\r\n          <div class=\"foot\">\r\n              <p>{{blog?.category}}</p>\r\n              <p>{{blog?.author}}</p>\r\n              <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\r\n          </div>\r\n        </div>\r\n      </app-toplists>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1734,6 +1742,103 @@ HomeModule = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/loader/loader.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".loading {\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 5999;\r\n    position: absolute;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    left: 0;\r\n}\r\n\r\ndiv.spinner:before {\r\n    content: '';\r\n    box-sizing: border-box;\r\n    width: 50px;\r\n    height: 50px;\r\n    position: absolute;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n    border: 3px solid #ccc;\r\n    border-top-color: #07d;\r\n    -webkit-animation: spin .6s linear infinite;\r\n            animation: spin .6s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n    to {-webkit-transform: rotate(360deg);transform: rotate(360deg);}\r\n}\r\n\r\n@keyframes spin {\r\n    to {-webkit-transform: rotate(360deg);transform: rotate(360deg);}\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/loader/loader.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"loading\">\n  <div class=\"spinner\"></div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/loader/loader.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoaderComponent = (function () {
+    function LoaderComponent() {
+    }
+    LoaderComponent.prototype.ngOnInit = function () {
+    };
+    return LoaderComponent;
+}());
+LoaderComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-loader',
+        template: __webpack_require__("../../../../../src/app/components/loader/loader.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/loader/loader.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], LoaderComponent);
+
+//# sourceMappingURL=loader.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/loader/loader.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loader_component__ = __webpack_require__("../../../../../src/app/components/loader/loader.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LoaderModule = (function () {
+    function LoaderModule() {
+    }
+    return LoaderModule;
+}());
+LoaderModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
+        ],
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__loader_component__["a" /* LoaderComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_2__loader_component__["a" /* LoaderComponent */]]
+    })
+], LoaderModule);
+
+//# sourceMappingURL=loader.module.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/login/login.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1755,7 +1860,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"loginForm\" (ngSubmit)=\"login(loginForm.value)\">\n    <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\n    <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\n    <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\n    <button type=\"submit\" [disabled]=\"!loginForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Log In</button>\n    <br><br>\n    <p> Not a member yet? <a (click)=\"gotoSignUp()\">Sign up here</a>.</p>\n</form>"
+module.exports = "<form [formGroup]=\"loginForm\" (ngSubmit)=\"login(loginForm.value)\">\r\n    <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n    <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n    <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n    <button type=\"submit\" [disabled]=\"!loginForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Log In</button>\r\n    <br><br>\r\n    <p> Not a member yet? <a (click)=\"gotoSignUp()\">Sign up here</a>.</p>\r\n</form>\r\n\r\n<div>\r\n    <app-loader *ngIf=\"loading\"></app-loader>\r\n</div>"
 
 /***/ }),
 
@@ -1790,6 +1895,7 @@ var LoginComponent = (function () {
         this.route = route;
         this.auth = auth;
         this.error = '';
+        this.loading = false;
         this.username = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]);
         this.password = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]);
         this.loginForm = this.fb.group({
@@ -1799,15 +1905,25 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
+    /**
+     * Log in user
+     * @param model
+     */
     LoginComponent.prototype.login = function (model) {
         var _this = this;
+        this.loginForm.disable();
+        this.loading = true;
         this.error = '';
         this.data = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"](function (observer) {
             setTimeout(function () {
                 observer.next(_this.auth.message);
             }, 1000);
         });
-        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) { return _this.error = error; });
+        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) {
+            _this.error = error;
+            _this.loading = false;
+            _this.loginForm.enable();
+        });
         this.auth.login(model);
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
@@ -1842,12 +1958,14 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loader_loader_module__ = __webpack_require__("../../../../../src/app/components/loader/loader.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1863,7 +1981,8 @@ LoginModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_5__loader_loader_module__["a" /* LoaderModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_4__login_component__["a" /* LoginComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_4__login_component__["a" /* LoginComponent */]]
@@ -1895,7 +2014,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/nav/nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav *ngIf=\"visible\" class=\"navbar navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" routerLink=\"/home\">Whiteboard</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav navbar-left\">\n          <li>\n            <ul *ngIf=\"auth.isLoggedIn\" id=\"author\">\n              <button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">\n                  {{ auth.username }}\n                <span class=\"caret\"></span>\n              </button>\n              <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\">\n                <li><a routerLink=\"/user/blogs\"><i class=\"fa fa-sticky-note\" aria-hidden=\"true\"></i> Your posts </a></li>\n                <li><a routerLink=\"/user/bookmarks\"><i class=\"fa fa-bookmark\" aria-hidden=\"true\"></i> Your bookmarks </a></li>\n              </ul>\n            </ul>\n          </li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"active\"><a routerLink=\"/home\"><span class=\"glyphicon glyphicon-home\"></span> Home <span class=\"sr-only\">(current)</span></a></li>\n        <li *ngIf=\"!auth.isLoggedIn\"><a routerLink=\"/auth\"><span class=\"glyphicon glyphicon-log-in\"></span> Log in</a></li>\n        <li *ngIf=\"auth.isLoggedIn\"><a routerLink=\"/create\"><span class=\"glyphicon glyphicon-plus\"></span> Write a blog </a></li>\n        <li *ngIf=\"auth.isLoggedIn\"><a (click)=\"logout()\"><span class=\"glyphicon glyphicon-log-out\"></span> Log out</a></li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>"
+module.exports = "<nav *ngIf=\"visible\" class=\"navbar navbar-fixed-top\">\r\n  <div class=\"container-fluid\">\r\n    <!-- Brand and toggle get grouped for better mobile display -->\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand\" routerLink=\"/home\">Whiteboard</a>\r\n    </div>\r\n\r\n    <!-- Collect the nav links, forms, and other content for toggling -->\r\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n      <ul class=\"nav navbar-nav navbar-left\">\r\n          <li>\r\n            <ul *ngIf=\"auth.isLoggedIn\" id=\"author\">\r\n              <button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">\r\n                  {{ auth.username }}\r\n                <span class=\"caret\"></span>\r\n              </button>\r\n              <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\">\r\n                <li><a routerLink=\"/user/blogs\"><i class=\"fa fa-sticky-note\" aria-hidden=\"true\"></i> Your posts </a></li>\r\n                <li><a routerLink=\"/user/bookmarks\"><i class=\"fa fa-bookmark\" aria-hidden=\"true\"></i> Your bookmarks </a></li>\r\n              </ul>\r\n            </ul>\r\n          </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li class=\"active\"><a routerLink=\"/home\"><span class=\"glyphicon glyphicon-home\"></span> Home <span class=\"sr-only\">(current)</span></a></li>\r\n        <li *ngIf=\"!auth.isLoggedIn\"><a routerLink=\"/auth\"><span class=\"glyphicon glyphicon-log-in\"></span> Log in</a></li>\r\n        <li *ngIf=\"auth.isLoggedIn\"><a routerLink=\"/create\"><span class=\"glyphicon glyphicon-plus\"></span> Write a blog </a></li>\r\n        <li *ngIf=\"auth.isLoggedIn\"><a (click)=\"logout()\"><span class=\"glyphicon glyphicon-log-out\"></span> Log out</a></li>\r\n      </ul>\r\n    </div><!-- /.navbar-collapse -->\r\n  </div><!-- /.container-fluid -->\r\n</nav>"
 
 /***/ }),
 
@@ -2139,7 +2258,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"signupForm\" (ngSubmit)=\"signup(signupForm.value)\">\n  <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\n  <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\n  <div class=\"alertError\" [hidden]=\"!username.dirty || !username.invalid\">\n    <p [hidden]=\"!username.hasError('inValidUsername')\">Invalid Username. Username must contain only letters, numbers and underscores</p>\n  </div>\n  <input type=\"email\" name=\"email\" id=\"email\" [formControl]=\"email\" placeholder=\"Email address\">\n  <div class=\"alertError\" [hidden]=\"!email.dirty || !email.invalid\">\n      <p [hidden]=\"!email.invalid && !email.hasError('inValidEmail')\">Invalid Email</p>\n    </div>\n  <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\n  <div class=\"alertError\" [hidden]=\"!password.dirty || !password.invalid\">\n    <p [hidden]=\"!password.hasError('inValidPassword')\">Invalid Password. Password should contain atleast one number,\n      one lowercase and one uppercase letter and should be atleast 6 characters long.</p>\n  </div>\n  <input type=\"password\" name=\"rePassword\" id=\"rePassword\" [formControl]=\"rePassword\" \n  [ngClass]=\"{'ng-invalid': password.value !== rePassword.value}\" placeholder=\"Re-Enter password\">\n  <div class=\"alertError\" [hidden]=\"(password.value === rePassword.value)\">\n    <p>Passwords don't match</p>\n  </div>\n  <button type=\"submit\" [disabled]=\"!signupForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Sign up</button>\n  <br><br>\n  <p> Already a member? <a (click)=gotoLogin()>Log in here</a>.</p>\n</form>"
+module.exports = "<form [formGroup]=\"signupForm\" (ngSubmit)=\"signup(signupForm.value)\">\r\n  <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n  <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n  <div class=\"alertError\" [hidden]=\"!username.dirty || !username.invalid\">\r\n    <p [hidden]=\"!username.hasError('inValidUsername')\">Invalid Username. Username must contain only letters, numbers and underscores</p>\r\n  </div>\r\n  <input type=\"email\" name=\"email\" id=\"email\" [formControl]=\"email\" placeholder=\"Email address\">\r\n  <div class=\"alertError\" [hidden]=\"!email.dirty || !email.invalid\">\r\n      <p [hidden]=\"!email.invalid && !email.hasError('inValidEmail')\">Invalid Email</p>\r\n    </div>\r\n  <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"!password.dirty || !password.invalid\">\r\n    <p [hidden]=\"!password.hasError('inValidPassword')\">Invalid Password. Password should contain atleast one number,\r\n      one lowercase and one uppercase letter and should be atleast 6 characters long.</p>\r\n  </div>\r\n  <input type=\"password\" name=\"rePassword\" id=\"rePassword\" [formControl]=\"rePassword\" \r\n  [ngClass]=\"{'ng-invalid': password.value !== rePassword.value}\" placeholder=\"Re-Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"(password.value === rePassword.value)\">\r\n    <p>Passwords don't match</p>\r\n  </div>\r\n  <div>\r\n    <app-loader *ngIf=\"loading\"></app-loader>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!signupForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Sign Up </button>\r\n  <br><br>\r\n  <p> Already a member? <a (click)=gotoLogin()>Log in here</a>.</p>\r\n</form>"
 
 /***/ }),
 
@@ -2176,6 +2295,7 @@ var SignupComponent = (function () {
         this.route = route;
         this.auth = auth;
         this.error = '';
+        this.loading = false;
         this.fv = new __WEBPACK_IMPORTED_MODULE_3__validators_form_validator__["a" /* FormValidators */]();
         this.username = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.fv.checkUsername]);
         this.email = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].email, this.fv.checkEmail]);
@@ -2190,15 +2310,25 @@ var SignupComponent = (function () {
     }
     SignupComponent.prototype.ngOnInit = function () {
     };
+    /**
+     * Sign up user
+     * @param model
+     */
     SignupComponent.prototype.signup = function (model) {
         var _this = this;
+        this.loading = true;
+        this.signupForm.disable();
         this.error = '';
         this.data = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"](function (observer) {
             setTimeout(function () {
                 observer.next(_this.auth.message);
             }, 1000);
         });
-        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) { return _this.error = error; });
+        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) {
+            _this.error = error;
+            _this.loading = false;
+            _this.signupForm.enable();
+        });
         this.auth.register(model);
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
@@ -2234,12 +2364,14 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__signup_component__ = __webpack_require__("../../../../../src/app/components/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loader_loader_module__ = __webpack_require__("../../../../../src/app/components/loader/loader.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2257,7 +2389,8 @@ SignupModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */]
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_6__loader_loader_module__["a" /* LoaderModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_5__signup_component__["a" /* SignupComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_5__signup_component__["a" /* SignupComponent */]]
@@ -2289,7 +2422,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/toplists/toplists.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng-content></ng-content>\n"
+module.exports = "<ng-content></ng-content>\r\n"
 
 /***/ }),
 
@@ -2387,7 +2520,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-bookmark/user-bookmark.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <li><a routerLink=\"/home\">Home</a></li>\n    <li>My Bookmarks</li>\n</ol>\n\n<div class=\"container-fluid\">\n  <div class=\"row\" align=\"center\">\n    <div class=\"col-xs-12\">\n      <div class=\"col-xs-12\">\n        <h3>My Bookmarks</h3>\n      </div>\n      <div class=\"col-xs-12\">\n        <p class=\"message\" *ngIf=\"blogArray.length === 0\">{{ message }}</p>\n        <div *ngFor=\"let blog of blogArray\" class=\"blogCard card\" (click)=\"blogDetail(blog)\">\n          <h2 [innerHTML]=\"blog?.title\"></h2>\n          <div class=\"foot\">\n              <p>{{blog?.category}}</p>\n              <p>{{blog?.author}}</p>\n              <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<ol class=\"breadcrumb\">\r\n    <li><a routerLink=\"/home\">Home</a></li>\r\n    <li>My Bookmarks</li>\r\n</ol>\r\n\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\" align=\"center\">\r\n    <div class=\"col-xs-12\">\r\n      <div class=\"col-xs-12\">\r\n        <h3>My Bookmarks</h3>\r\n      </div>\r\n      <div class=\"col-xs-12\">\r\n        <p class=\"message\" *ngIf=\"blogArray.length === 0\">{{ message }}</p>\r\n        <div *ngFor=\"let blog of blogArray\" class=\"blogCard card\" (click)=\"blogDetail(blog)\">\r\n          <h2 [innerHTML]=\"blog?.title\"></h2>\r\n          <div class=\"foot\">\r\n              <p>{{blog?.category}}</p>\r\n              <p>{{blog?.author}}</p>\r\n              <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2522,7 +2655,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user/user.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ol class=\"breadcrumb\">\n    <li><a routerLink=\"/home\">Home</a></li>\n    <li>My Posts</li>\n</ol>\n<div class=\"container-fluid\">\n  <div class=\"row\" align=\"center\">\n    <div class=\"col-xs-12\">\n      <h3>My Posts</h3>\n    </div>\n    <div class=\"col-xs-12\" align=\"center\">\n      <p class=\"message\" *ngIf=\"blogArray.length === 0\">{{ message }}</p>\n      <div *ngFor=\"let blog of blogArray\" class=\"blogCard card\">\n        <div class=\"floatLeft col-xs-10\">\n          <a (click)=\"blogDetail(blog)\"><h2 [innerHTML]=\"blog?.title\"></h2></a>\n        </div>\n        <div class=\"floatRight dropdown col-xs-2\" style=\"float:right;\">\n          <a type=\"button\" data-toggle=\"dropdown\"><i class=\"fa fa-caret-down fa-2x\" aria-hidden=\"true\"></i></a>\n          <ul class=\"dropdown-menu pull-right\">\n            <li><a (click)=\"edit(blog._id)\">Edit</a></li>\n            <li><a (click)=\"deleteBlog(blog._id)\">Delete</a></li>\n          </ul> \n        </div>\n        <br><br>\n        <div class=\"clear foot\">\n            <p>{{blog?.category}}</p>\n            <p>{{blog?.author}}</p>\n            <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<ol class=\"breadcrumb\">\r\n    <li><a routerLink=\"/home\">Home</a></li>\r\n    <li>My Posts</li>\r\n</ol>\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\" align=\"center\">\r\n    <div class=\"col-xs-12\">\r\n      <h3>My Posts</h3>\r\n    </div>\r\n    <div class=\"col-xs-12\" align=\"center\">\r\n      <p class=\"message\" *ngIf=\"blogArray.length === 0\">{{ message }}</p>\r\n      <div *ngFor=\"let blog of blogArray\" class=\"blogCard card\">\r\n        <div class=\"floatLeft col-xs-10\">\r\n          <a (click)=\"blogDetail(blog)\"><h2 [innerHTML]=\"blog?.title\"></h2></a>\r\n        </div>\r\n        <div class=\"floatRight dropdown col-xs-2\" style=\"float:right;\">\r\n          <a type=\"button\" data-toggle=\"dropdown\"><i class=\"fa fa-caret-down fa-2x\" aria-hidden=\"true\"></i></a>\r\n          <ul class=\"dropdown-menu pull-right\">\r\n            <li><a (click)=\"edit(blog._id)\">Edit</a></li>\r\n            <li><a (click)=\"deleteBlog(blog._id)\">Delete</a></li>\r\n          </ul> \r\n        </div>\r\n        <br><br>\r\n        <div class=\"clear foot\">\r\n            <p>{{blog?.category}}</p>\r\n            <p>{{blog?.author}}</p>\r\n            <p><em>{{blog?.updatedAt | date: 'yMMMd'}}</em></p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2861,7 +2994,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var baseURL = "https://whiteboard-app.herokuapp.com";
+var baseURL = "http://localhost:3000";
 var BlogServerService = (function () {
     function BlogServerService(http, route, auth) {
         this.http = http;
@@ -3188,7 +3321,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var baseURL = "https://whiteboard-app.herokuapp.com";
+var baseURL = "http://localhost:3000";
 var UserAuthService = (function () {
     function UserAuthService(http, route, local) {
         this.http = http;
