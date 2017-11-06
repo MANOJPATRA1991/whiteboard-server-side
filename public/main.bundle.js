@@ -1917,9 +1917,11 @@ var LoginComponent = (function () {
                 observer.next(_this.auth.message);
             }, 1000);
         });
-        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) {
-            _this.error = error;
+        var subscription = this.data.subscribe(function (value) {
+            _this.error = value;
             _this.loginForm.enable();
+        }, function (error) {
+            _this.error = error;
         });
         this.auth.login(model);
         if (this.auth.isLoggedIn) {
