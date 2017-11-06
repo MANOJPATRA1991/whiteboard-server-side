@@ -1922,6 +1922,9 @@ var LoginComponent = (function () {
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
         }
+        else {
+            this.loginForm.enable();
+        }
     };
     LoginComponent.prototype.gotoSignUp = function () {
         this.route.navigateByUrl('/auth/signup');
@@ -2320,6 +2323,9 @@ var SignupComponent = (function () {
         this.auth.register(model);
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
+        }
+        else {
+            this.signupForm.enable();
         }
     };
     SignupComponent.prototype.gotoLogin = function () {
