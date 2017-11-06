@@ -1860,7 +1860,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"loginForm\" (ngSubmit)=\"login(loginForm.value)\">\r\n    <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n    <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n    <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n    <button type=\"submit\" [disabled]=\"!loginForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Log In</button>\r\n    <br><br>\r\n    <p> Not a member yet? <a (click)=\"gotoSignUp()\">Sign up here</a>.</p>\r\n</form>\r\n\r\n<div>\r\n    <app-loader *ngIf=\"loading\"></app-loader>\r\n</div>"
+module.exports = "<form [formGroup]=\"loginForm\" (ngSubmit)=\"login(loginForm.value)\">\r\n    <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n    <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n    <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n    <button type=\"submit\" [disabled]=\"!loginForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Log In</button>\r\n    <br><br>\r\n    <p> Not a member yet? <a (click)=\"gotoSignUp()\">Sign up here</a>.</p>\r\n</form>"
 
 /***/ }),
 
@@ -1895,7 +1895,6 @@ var LoginComponent = (function () {
         this.route = route;
         this.auth = auth;
         this.error = '';
-        this.loading = false;
         this.username = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]);
         this.password = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]);
         this.loginForm = this.fb.group({
@@ -1912,7 +1911,6 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function (model) {
         var _this = this;
         this.loginForm.disable();
-        this.loading = true;
         this.error = '';
         this.data = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"](function (observer) {
             setTimeout(function () {
@@ -1923,10 +1921,6 @@ var LoginComponent = (function () {
         this.auth.login(model);
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
-        }
-        if (this.error !== '') {
-            this.loading = false;
-            this.loginForm.enable();
         }
     };
     LoginComponent.prototype.gotoSignUp = function () {
@@ -2258,7 +2252,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"signupForm\" (ngSubmit)=\"signup(signupForm.value)\">\r\n  <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n  <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n  <div class=\"alertError\" [hidden]=\"!username.dirty || !username.invalid\">\r\n    <p [hidden]=\"!username.hasError('inValidUsername')\">Invalid Username. Username must contain only letters, numbers and underscores</p>\r\n  </div>\r\n  <input type=\"email\" name=\"email\" id=\"email\" [formControl]=\"email\" placeholder=\"Email address\">\r\n  <div class=\"alertError\" [hidden]=\"!email.dirty || !email.invalid\">\r\n      <p [hidden]=\"!email.invalid && !email.hasError('inValidEmail')\">Invalid Email</p>\r\n    </div>\r\n  <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"!password.dirty || !password.invalid\">\r\n    <p [hidden]=\"!password.hasError('inValidPassword')\">Invalid Password. Password should contain atleast one number,\r\n      one lowercase and one uppercase letter and should be atleast 6 characters long.</p>\r\n  </div>\r\n  <input type=\"password\" name=\"rePassword\" id=\"rePassword\" [formControl]=\"rePassword\" \r\n  [ngClass]=\"{'ng-invalid': password.value !== rePassword.value}\" placeholder=\"Re-Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"(password.value === rePassword.value)\">\r\n    <p>Passwords don't match</p>\r\n  </div>\r\n  <div>\r\n    <app-loader *ngIf=\"loading\"></app-loader>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!signupForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Sign Up </button>\r\n  <br><br>\r\n  <p> Already a member? <a (click)=gotoLogin()>Log in here</a>.</p>\r\n</form>"
+module.exports = "<form [formGroup]=\"signupForm\" (ngSubmit)=\"signup(signupForm.value)\">\r\n  <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n  <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n  <div class=\"alertError\" [hidden]=\"!username.dirty || !username.invalid\">\r\n    <p [hidden]=\"!username.hasError('inValidUsername')\">Invalid Username. Username must contain only letters, numbers and underscores</p>\r\n  </div>\r\n  <input type=\"email\" name=\"email\" id=\"email\" [formControl]=\"email\" placeholder=\"Email address\">\r\n  <div class=\"alertError\" [hidden]=\"!email.dirty || !email.invalid\">\r\n      <p [hidden]=\"!email.invalid && !email.hasError('inValidEmail')\">Invalid Email</p>\r\n    </div>\r\n  <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"!password.dirty || !password.invalid\">\r\n    <p [hidden]=\"!password.hasError('inValidPassword')\">Invalid Password. Password should contain atleast one number,\r\n      one lowercase and one uppercase letter and should be atleast 6 characters long.</p>\r\n  </div>\r\n  <input type=\"password\" name=\"rePassword\" id=\"rePassword\" [formControl]=\"rePassword\" \r\n  [ngClass]=\"{'ng-invalid': password.value !== rePassword.value}\" placeholder=\"Re-Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"(password.value === rePassword.value)\">\r\n    <p>Passwords don't match</p>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!signupForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Sign Up </button>\r\n  <br><br>\r\n  <p> Already a member? <a (click)=gotoLogin()>Log in here</a>.</p>\r\n</form>"
 
 /***/ }),
 
@@ -2295,7 +2289,6 @@ var SignupComponent = (function () {
         this.route = route;
         this.auth = auth;
         this.error = '';
-        this.loading = false;
         this.fv = new __WEBPACK_IMPORTED_MODULE_3__validators_form_validator__["a" /* FormValidators */]();
         this.username = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.fv.checkUsername]);
         this.email = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].email, this.fv.checkEmail]);
@@ -2316,7 +2309,6 @@ var SignupComponent = (function () {
      */
     SignupComponent.prototype.signup = function (model) {
         var _this = this;
-        this.loading = true;
         this.signupForm.disable();
         this.error = '';
         this.data = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"](function (observer) {
@@ -2324,11 +2316,7 @@ var SignupComponent = (function () {
                 observer.next(_this.auth.message);
             }, 1000);
         });
-        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) {
-            _this.error = error;
-            _this.loading = false;
-            _this.signupForm.enable();
-        });
+        var subscription = this.data.subscribe(function (value) { return _this.error = value; }, function (error) { return _this.error = error; });
         this.auth.register(model);
         if (this.auth.isLoggedIn) {
             subscription.unsubscribe();
