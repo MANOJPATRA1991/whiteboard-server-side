@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-alert></app-alert>\r\n<app-nav></app-nav>\r\n<div class=\"scrollmenu\" *ngIf=\"show()\">\r\n    <app-sidebar *ngFor=\"let category of categories; let i = index\">\r\n        <a (click)=\"navCategories(category.name)\">{{ category.name }}</a>\r\n    </app-sidebar>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<app-alert></app-alert>\r\n<app-nav></app-nav>\r\n<div class=\"scrollmenu\" *ngIf=\"show()\">\r\n    <app-sidebar *ngFor=\"let category of categories; let i = index\">\r\n        <a (click)=\"navCategories(category.name)\">{{ category.name }}</a>\r\n    </app-sidebar>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -70,7 +70,6 @@ var AppComponent = (function () {
         this.route = route;
         this.blog = blog;
         this.title = 'app';
-        this.isLoading = false;
     }
     AppComponent.prototype.ngOnInit = function () {
         this.getCategories();
@@ -107,10 +106,6 @@ var AppComponent = (function () {
     };
     return AppComponent;
 }());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Object)
-], AppComponent.prototype, "isLoading", void 0);
 AppComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
@@ -132,27 +127,27 @@ var _a, _b, _c;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_nav_nav_module__ = __webpack_require__("../../../../../src/app/components/nav/nav.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_home_home_module__ = __webpack_require__("../../../../../src/app/components/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_user_auth_service__ = __webpack_require__("../../../../../src/app/services/user-auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_local_storage_service__ = __webpack_require__("../../../../../src/app/services/local-storage.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__guards_activate_guard__ = __webpack_require__("../../../../../src/app/guards/activate.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__guards_deactivate_guard__ = __webpack_require__("../../../../../src/app/guards/deactivate.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_blog_detail_blog_detail_module__ = __webpack_require__("../../../../../src/app/components/blog-detail/blog-detail.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_categories_categories_module__ = __webpack_require__("../../../../../src/app/components/categories/categories.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_user_user_module__ = __webpack_require__("../../../../../src/app/components/user/user.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_user_bookmark_user_bookmark_module__ = __webpack_require__("../../../../../src/app/components/user-bookmark/user-bookmark.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_blog_server_service__ = __webpack_require__("../../../../../src/app/services/blog-server.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sidebar_sidebar_module__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_categories_service__ = __webpack_require__("../../../../../src/app/services/categories.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_alert_alert_module__ = __webpack_require__("../../../../../src/app/components/alert/alert.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_edit_blog_edit_blog_module__ = __webpack_require__("../../../../../src/app/components/edit-blog/edit-blog.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_loader_loader_module__ = __webpack_require__("../../../../../src/app/components/loader/loader.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_nav_nav_module__ = __webpack_require__("../../../../../src/app/components/nav/nav.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_home_home_module__ = __webpack_require__("../../../../../src/app/components/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_user_auth_service__ = __webpack_require__("../../../../../src/app/services/user-auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_local_storage_service__ = __webpack_require__("../../../../../src/app/services/local-storage.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guards_activate_guard__ = __webpack_require__("../../../../../src/app/guards/activate.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__guards_deactivate_guard__ = __webpack_require__("../../../../../src/app/guards/deactivate.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_blog_detail_blog_detail_module__ = __webpack_require__("../../../../../src/app/components/blog-detail/blog-detail.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_categories_categories_module__ = __webpack_require__("../../../../../src/app/components/categories/categories.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_user_user_module__ = __webpack_require__("../../../../../src/app/components/user/user.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_user_bookmark_user_bookmark_module__ = __webpack_require__("../../../../../src/app/components/user-bookmark/user-bookmark.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_blog_server_service__ = __webpack_require__("../../../../../src/app/services/blog-server.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_sidebar_sidebar_module__ = __webpack_require__("../../../../../src/app/components/sidebar/sidebar.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_categories_service__ = __webpack_require__("../../../../../src/app/services/categories.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_alert_alert_module__ = __webpack_require__("../../../../../src/app/components/alert/alert.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_alert_service__ = __webpack_require__("../../../../../src/app/services/alert.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_edit_blog_edit_blog_module__ = __webpack_require__("../../../../../src/app/components/edit-blog/edit-blog.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_footer_footer_module__ = __webpack_require__("../../../../../src/app/components/footer/footer.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -190,34 +185,34 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_17__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_5__components_nav_nav_module__["a" /* NavModule */],
-            __WEBPACK_IMPORTED_MODULE_7__components_home_home_module__["a" /* HomeModule */],
-            __WEBPACK_IMPORTED_MODULE_6__app_routing__["a" /* routing */],
-            __WEBPACK_IMPORTED_MODULE_17__components_sidebar_sidebar_module__["a" /* SidebarModule */],
-            __WEBPACK_IMPORTED_MODULE_13__components_categories_categories_module__["a" /* CategoriesModule */],
-            __WEBPACK_IMPORTED_MODULE_14__components_user_user_module__["a" /* UserModule */],
-            __WEBPACK_IMPORTED_MODULE_15__components_user_bookmark_user_bookmark_module__["a" /* UserBookmarkModule */],
-            __WEBPACK_IMPORTED_MODULE_12__components_blog_detail_blog_detail_module__["a" /* BlogDetailModule */],
-            __WEBPACK_IMPORTED_MODULE_19__components_alert_alert_module__["a" /* AlertModule */],
-            __WEBPACK_IMPORTED_MODULE_21__components_edit_blog_edit_blog_module__["a" /* EditBlogModule */],
-            __WEBPACK_IMPORTED_MODULE_22__components_loader_loader_module__["a" /* LoaderModule */]
+            __WEBPACK_IMPORTED_MODULE_3__components_nav_nav_module__["a" /* NavModule */],
+            __WEBPACK_IMPORTED_MODULE_5__components_home_home_module__["a" /* HomeModule */],
+            __WEBPACK_IMPORTED_MODULE_4__app_routing__["a" /* routing */],
+            __WEBPACK_IMPORTED_MODULE_15__components_sidebar_sidebar_module__["a" /* SidebarModule */],
+            __WEBPACK_IMPORTED_MODULE_11__components_categories_categories_module__["a" /* CategoriesModule */],
+            __WEBPACK_IMPORTED_MODULE_12__components_user_user_module__["a" /* UserModule */],
+            __WEBPACK_IMPORTED_MODULE_13__components_user_bookmark_user_bookmark_module__["a" /* UserBookmarkModule */],
+            __WEBPACK_IMPORTED_MODULE_10__components_blog_detail_blog_detail_module__["a" /* BlogDetailModule */],
+            __WEBPACK_IMPORTED_MODULE_18__components_alert_alert_module__["a" /* AlertModule */],
+            __WEBPACK_IMPORTED_MODULE_20__components_edit_blog_edit_blog_module__["a" /* EditBlogModule */],
+            __WEBPACK_IMPORTED_MODULE_22__components_footer_footer_module__["a" /* FooterModule */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_18__services_categories_service__["a" /* CategoriesService */],
-            __WEBPACK_IMPORTED_MODULE_16__services_blog_server_service__["a" /* BlogServerService */],
-            __WEBPACK_IMPORTED_MODULE_8__services_user_auth_service__["a" /* UserAuthService */],
-            __WEBPACK_IMPORTED_MODULE_9__services_local_storage_service__["a" /* LocalStorageService */],
-            __WEBPACK_IMPORTED_MODULE_10__guards_activate_guard__["a" /* ActivateGuard */],
-            __WEBPACK_IMPORTED_MODULE_11__guards_deactivate_guard__["a" /* DeactivateGuard */],
-            __WEBPACK_IMPORTED_MODULE_20__services_alert_service__["a" /* AlertService */],
-            { provide: __WEBPACK_IMPORTED_MODULE_3__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_3__angular_common__["d" /* HashLocationStrategy */] }
+            __WEBPACK_IMPORTED_MODULE_16__services_categories_service__["a" /* CategoriesService */],
+            __WEBPACK_IMPORTED_MODULE_14__services_blog_server_service__["a" /* BlogServerService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_user_auth_service__["a" /* UserAuthService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_local_storage_service__["a" /* LocalStorageService */],
+            __WEBPACK_IMPORTED_MODULE_8__guards_activate_guard__["a" /* ActivateGuard */],
+            __WEBPACK_IMPORTED_MODULE_9__guards_deactivate_guard__["a" /* DeactivateGuard */],
+            __WEBPACK_IMPORTED_MODULE_19__services_alert_service__["a" /* AlertService */],
+            { provide: __WEBPACK_IMPORTED_MODULE_21__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_21__angular_common__["d" /* HashLocationStrategy */] }
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -447,7 +442,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/auth/auth.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"card card-1-1 col-xs-12\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div  class=\"title col-xs-12\">\r\n            <p>Whiteboard</p>\r\n          </div>\r\n            <p class=\"alertError\" *ngIf=\"message !== ''\">{{ message }}</p>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\r\n          <h5> or </h5>\r\n          <br>\r\n          <h4> Log in with </h4>\r\n          <a href=\"https://whiteboard-app.herokuapp.com/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\r\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"card card-1-1 col-xs-12\">\r\n      <div class=\"row\">\r\n        <div class=\"col-xs-12\">\r\n          <div  class=\"title col-xs-12\">\r\n            <p>Whiteboard</p>\r\n          </div>\r\n            <p class=\"alertError\" *ngIf=\"message !== ''\">{{ message }}</p>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n        <div *ngIf=\"showSocialLogin()\" class=\"col-xs-12\">\r\n          <h5> or </h5>\r\n          <br>\r\n          <h4> Log in with </h4>\r\n          <a href=\"http://localhost:3000/users/facebook\" target=\"_self\" title=\"Facebook\" class=\"card btn btn-facebook btn-lg\">\r\n            <i class=\"fa fa-facebook fa-fw\"></i> Facebook\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -566,7 +561,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container {\r\n    margin-top: 70px;\r\n}\r\n\r\n:host /deep/ blockquote {\r\n    border-left: solid 2px #5e35b1;\r\n    margin-left: 0;\r\n    padding-left: 5px;\r\n    color: #5e35b1;\r\n}\r\n\r\n\r\n:host /deep/ a {\r\n    color: #337ab7;\r\n    text-decoration: none;\r\n}\r\n\r\n.float1 {\r\n    float: left;\r\n}\r\n\r\n.float2 {\r\n    float: right;\r\n    margin-right: 10px;\r\n    text-align: right;\r\n}\r\n\r\n.title {\r\n    font-size: 50px;\r\n    color: red;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.content {\r\n    display: inline-block;\r\n    font-size: 1.5em;\r\n    text-align: justify;\r\n}\r\n\r\n#bookmark, #likes {\r\n    background-color: #fff;\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 20px;\r\n    border-radius: 50%;\r\n    border: 0;\r\n    outline: none;\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n.clear {\r\n    clear: both;\r\n}\r\n\r\n.auth {\r\n    line-height: 2em;\r\n    font-size: 14px;\r\n    color: #386ab2;\r\n    margin-top: 40px;\r\n}\r\n\r\nul {\r\n    padding-left: 0;\r\n    position: relative;\r\n    list-style: none;\r\n}\r\n\r\n.buttons {\r\n    margin: 10px;\r\n    display: inline-block;\r\n    position: relative;\r\n    border-radius: 50%;\r\n}\r\n\r\n#bookmark:active, #likes:active {\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n    ul {\r\n        left: 10px;\r\n    }\r\n    .float1 {\r\n        float: none;\r\n    }\r\n    .float2 {\r\n        text-align: left;\r\n        float: none;\r\n        margin-left: 10px;\r\n    }\r\n\r\n    .auth {\r\n        margin-top: auto;\r\n    }\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\nh2 {\r\n    font-size: 50px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n#bookmark .label, #likes .label {\r\n    position: absolute;\r\n    top: -10px;\r\n    right: -10px;\r\n}\r\n\r\n.btn-metis-4 {\r\n  color: #ffffff;\r\n  background-color: #a264e7;\r\n  border-color: #62309a;\r\n}\r\n\r\n.discuss {\r\n    color: #00BD00;\r\n}", ""]);
+exports.push([module.i, ".container {\r\n    margin-top: 70px;\r\n}\r\n\r\n:host /deep/ p {\r\n    color: #000;\r\n}\r\n\r\n:host /deep/ blockquote {\r\n    border-left: solid 2px #eee6ff;\r\n    margin-left: 0;\r\n    padding-left: 5px;\r\n}\r\n\r\n:host /deep/ blockquote p {\r\n    color: #3d119a !important;\r\n}\r\n\r\n:host /deep/ a {\r\n    color: #337ab7;\r\n    text-decoration: none;\r\n}\r\n\r\n.float1 {\r\n    float: left;\r\n}\r\n\r\n.float2 {\r\n    float: right;\r\n    margin-right: 10px;\r\n    text-align: right;\r\n}\r\n\r\n.title {\r\n    font-size: 50px;\r\n    color: red;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.content {\r\n    display: inline-block;\r\n    font-size: 1.5em;\r\n    text-align: justify;\r\n}\r\n\r\n#bookmark, #likes {\r\n    background-color: #fff;\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 20px;\r\n    border-radius: 50%;\r\n    border: 0;\r\n    outline: none;\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n.clear {\r\n    clear: both;\r\n}\r\n\r\n.auth {\r\n    line-height: 2em;\r\n    font-size: 14px;\r\n    color: #386ab2;\r\n    margin-top: 40px;\r\n}\r\n\r\nul {\r\n    padding-left: 0;\r\n    position: relative;\r\n    list-style: none;\r\n}\r\n\r\n.buttons {\r\n    margin: 10px;\r\n    display: inline-block;\r\n    position: relative;\r\n    border-radius: 50%;\r\n}\r\n\r\n#bookmark:active, #likes:active {\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n    ul {\r\n        left: 10px;\r\n    }\r\n    .float1 {\r\n        float: none;\r\n    }\r\n    .float2 {\r\n        text-align: left;\r\n        float: none;\r\n        margin-left: 10px;\r\n    }\r\n\r\n    .auth {\r\n        margin-top: auto;\r\n    }\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\nh2 {\r\n    font-size: 50px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n#bookmark .label, #likes .label {\r\n    position: absolute;\r\n    top: -10px;\r\n    right: -10px;\r\n}\r\n\r\n.btn-metis-4 {\r\n  color: #ffffff;\r\n  background-color: #a264e7;\r\n  border-color: #62309a;\r\n}\r\n\r\n.discuss {\r\n    color: #00BD00;\r\n}", ""]);
 
 // exports
 
@@ -730,7 +725,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container-fluid {\r\n    margin: 0 auto;\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.blogCard {\r\n    position: relative;\r\n    margin: 10px;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.col-centered {\r\n    float: none;\r\n    margin: 0 auto;\r\n}\r\n\r\n.center-block {\r\n    float: none !important;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%;\r\n        margin: 10px auto;\r\n    }\r\n    .col-xs-12 {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 30px;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".container-fluid {\r\n    margin: 0 auto;\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.blogCard {\r\n    position: relative;\r\n    margin: 10px;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    padding: 10px 20px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.col-centered {\r\n    float: none;\r\n    margin: 0 auto;\r\n}\r\n\r\n.center-block {\r\n    float: none !important;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%;\r\n        margin: 10px auto;\r\n    }\r\n    .col-xs-12 {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 30px;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -892,7 +887,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/*Comment List styles*/\r\n.comment-list .row {\r\n  margin-bottom: 0px;\r\n}\r\n.comment-list .panel .panel-heading {\r\n  padding: 4px 15px;\r\n  position: absolute;\r\n  border:none;\r\n  /*Panel-heading border radius*/\r\n  border-top-right-radius:0px;\r\n  top: 1px;\r\n}\r\n.comment-list .panel .panel-heading.right {\r\n  border-right-width: 0px;\r\n  /*Panel-heading border radius*/\r\n  border-top-left-radius:0px;\r\n  right: 16px;\r\n}\r\n.comment-list .panel .panel-heading .panel-body {\r\n  padding-top: 6px;\r\n}\r\n.comment-list figcaption {\r\n  /*For wrapping text in thumbnail*/\r\n  word-wrap: break-word;\r\n}\r\n/* Portrait tablets and medium desktops */\r\n@media (min-width: 768px) {\r\n  .comment-list .arrow:after, .comment-list .arrow:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-color: transparent;\r\n  }\r\n  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {\r\n    border-left: 0;\r\n  }\r\n  /*****Left Arrow*****/\r\n  /*Outline effect style*/\r\n  .comment-list .panel.arrow.left:before {\r\n    left: 0px;\r\n    top: 30px;\r\n    /*Use boarder color of panel*/\r\n    border-right-color: inherit;\r\n    border-width: 16px;\r\n  }\r\n  /*Background color effect*/\r\n  .comment-list .panel.arrow.left:after {\r\n    left: 1px;\r\n    top: 31px;\r\n    /*Change for different outline color*/\r\n    border-right-color: #FFFFFF;\r\n    border-width: 15px;\r\n  }\r\n  /*****Right Arrow*****/\r\n  /*Outline effect style*/\r\n  .comment-list .panel.arrow.right:before {\r\n    right: -16px;\r\n    top: 30px;\r\n    /*Use boarder color of panel*/\r\n    border-left-color: inherit;\r\n    border-width: 16px;\r\n  }\r\n  /*Background color effect*/\r\n  .comment-list .panel.arrow.right:after {\r\n    right: -14px;\r\n    top: 31px;\r\n    /*Change for different outline color*/\r\n    border-left-color: #FFFFFF;\r\n    border-width: 15px;\r\n  }\r\n}\r\n.comment-list .comment-post {\r\n  margin-top: 6px;\r\n}\r\n\r\n.panel {\r\n  width: 100%;\r\n}\r\n\r\n.comment-user {\r\n  float: left;\r\n  font-weight: bold;\r\n}\r\n\r\n.comment-date {\r\n  float: right;\r\n  color: #A0A0A0;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  resize: none;\r\n  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\nbutton {\r\n  outline: none;\r\n  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nbutton:active {\r\n  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\n.formdiv {\r\n  margin-bottom: 20px;\r\n}", ""]);
+exports.push([module.i, "/*Comment List styles*/\r\n.comment-list .row {\r\n  margin-bottom: 0px;\r\n}\r\n\r\np {\r\n  color: rgb(107, 70, 70) !important;\r\n}\r\n\r\n.comment-list .panel .panel-heading {\r\n  padding: 4px 15px;\r\n  position: absolute;\r\n  border:none;\r\n  /*Panel-heading border radius*/\r\n  border-top-right-radius:0px;\r\n  top: 1px;\r\n}\r\n\r\n.comment-list .panel .panel-heading.right {\r\n  border-right-width: 0px;\r\n  /*Panel-heading border radius*/\r\n  border-top-left-radius:0px;\r\n  right: 16px;\r\n}\r\n\r\n.comment-list .panel .panel-heading .panel-body {\r\n  padding-top: 6px;\r\n}\r\n\r\n.comment-list figcaption {\r\n  /*For wrapping text in thumbnail*/\r\n  word-wrap: break-word;\r\n}\r\n\r\n/* Portrait tablets and medium desktops */\r\n@media (min-width: 768px) {\r\n  .comment-list .arrow:after, .comment-list .arrow:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 0;\r\n    height: 0;\r\n    border-style: solid;\r\n    border-color: transparent;\r\n  }\r\n  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {\r\n    border-left: 0;\r\n  }\r\n  /*****Left Arrow*****/\r\n  /*Outline effect style*/\r\n  .comment-list .panel.arrow.left:before {\r\n    left: 0px;\r\n    top: 30px;\r\n    /*Use boarder color of panel*/\r\n    border-right-color: inherit;\r\n    border-width: 16px;\r\n  }\r\n  /*Background color effect*/\r\n  .comment-list .panel.arrow.left:after {\r\n    left: 1px;\r\n    top: 31px;\r\n    /*Change for different outline color*/\r\n    border-right-color: #FFFFFF;\r\n    border-width: 15px;\r\n  }\r\n  /*****Right Arrow*****/\r\n  /*Outline effect style*/\r\n  .comment-list .panel.arrow.right:before {\r\n    right: -16px;\r\n    top: 30px;\r\n    /*Use boarder color of panel*/\r\n    border-left-color: inherit;\r\n    border-width: 16px;\r\n  }\r\n  /*Background color effect*/\r\n  .comment-list .panel.arrow.right:after {\r\n    right: -14px;\r\n    top: 31px;\r\n    /*Change for different outline color*/\r\n    border-left-color: #FFFFFF;\r\n    border-width: 15px;\r\n  }\r\n}\r\n.comment-list .comment-post {\r\n  margin-top: 6px;\r\n}\r\n\r\n.panel {\r\n  width: 100%;\r\n}\r\n\r\n.comment-user {\r\n  float: left;\r\n  font-weight: bold;\r\n}\r\n\r\n.comment-date {\r\n  float: right;\r\n  color: #A0A0A0;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  resize: none;\r\n  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\nbutton {\r\n  outline: none;\r\n  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nbutton:active {\r\n  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\n.formdiv {\r\n  margin-bottom: 20px;\r\n}", ""]);
 
 // exports
 
@@ -1560,6 +1555,111 @@ EditBlogModule = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/footer/footer.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(http://fonts.googleapis.com/css?family=Fjalla+One);", ""]);
+exports.push([module.i, "@import url(http://fonts.googleapis.com/css?family=Gudea);", ""]);
+
+// module
+exports.push([module.i, ".container-fluid {\r\n    padding-right: 40px;\r\n}\r\n\r\n\r\n.footer-bottom {\r\n    background-color: #4f151f;\r\n    min-height: 30px;\r\n    width: 100%;\r\n    margin-top: 5em;\r\n    margin-top: 20px;\r\n    position: fixed;\r\n    bottom: 0;\r\n}\r\n\r\n.copyright {\r\n    color: #fff;\r\n    line-height: 30px;\r\n    min-height: 30px;\r\n    padding: 7px 0;\r\n}\r\n.design {\r\n    color: #fff;\r\n    line-height: 30px;\r\n    min-height: 30px;\r\n    padding: 7px 0;\r\n    text-align: right;\r\n}\r\n.design a {\r\n    color: #fff;\r\n    padding-right: 8px;\r\n}\r\n\r\n.design a:hover {\r\n    text-decoration: none;\r\n    color: red;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/footer/footer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"footer-bottom\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n        <div class=\"copyright\">\n          © 2017, White Board, All rights reserved\n        </div>\n      </div>\n      <div class=\"col-xs-6 col-md-6 col-lg-6\">\n        <div class=\"design\">\n          <a routerLink=\"/home\">\n            <span class=\"glyphicon glyphicon-home\"></span>  Home \n          </a>  \n          <span *ngIf=\"auth.isLoggedIn\">\n            <a routerLink=\"/create\">\n              <span class=\"glyphicon glyphicon-plus\"></span>  Write \n            </a>\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/footer/footer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_auth_service__ = __webpack_require__("../../../../../src/app/services/user-auth.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FooterComponent = (function () {
+    function FooterComponent(auth) {
+        this.auth = auth;
+    }
+    FooterComponent.prototype.ngOnInit = function () {
+    };
+    return FooterComponent;
+}());
+FooterComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-footer',
+        template: __webpack_require__("../../../../../src/app/components/footer/footer.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/footer/footer.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_auth_service__["a" /* UserAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_auth_service__["a" /* UserAuthService */]) === "function" && _a || Object])
+], FooterComponent);
+
+var _a;
+//# sourceMappingURL=footer.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/footer/footer.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer_component__ = __webpack_require__("../../../../../src/app/components/footer/footer.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var FooterModule = (function () {
+    function FooterModule() {
+    }
+    return FooterModule;
+}());
+FooterModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* RouterModule */]
+        ],
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__footer_component__["a" /* FooterComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_3__footer_component__["a" /* FooterComponent */]]
+    })
+], FooterModule);
+
+//# sourceMappingURL=footer.module.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/home/home.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1568,7 +1668,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container-fluid {\r\n    margin: 0 auto;\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.label {\r\n    position: absolute;\r\n    top: -5px;\r\n    right: -5px;\r\n}\r\n\r\n.title {\r\n    word-wrap: break-word;\r\n}\r\n\r\n.card-category {\r\n    margin: 10px 0;\r\n    width: 100%;\r\n    height: 50px;\r\n    padding: 15px;\r\n    background-color: white;\r\n    color: red;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\n.card-category:hover {\r\n    background-color: red;\r\n    color: white;\r\n}\r\n\r\n.blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565; \r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".container-fluid {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n}\r\n\r\n.label {\r\n    position: absolute;\r\n    top: -5px;\r\n    right: -5px;\r\n}\r\n\r\n.title {\r\n    width: 100%;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n}\r\n\r\n.card-category {\r\n    margin: 10px 0;\r\n    width: 100%;\r\n    padding: 15px;\r\n    background-color: white;\r\n    color: red;\r\n    font-weight: bold;\r\n    cursor: pointer;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\n.card-category:hover {\r\n    background-color: red;\r\n    color: white;\r\n}\r\n\r\n.blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    padding-left: 15px;\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    .card-category {\r\n        padding: 15px;\r\n    }\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565; \r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -1742,103 +1842,6 @@ HomeModule = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/loader/loader.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".loading {\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 5999;\r\n    position: absolute;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    left: 0;\r\n}\r\n\r\ndiv.spinner:before {\r\n    content: '';\r\n    box-sizing: border-box;\r\n    width: 50px;\r\n    height: 50px;\r\n    position: absolute;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n    border: 3px solid #ccc;\r\n    border-top-color: #07d;\r\n    -webkit-animation: spin .6s linear infinite;\r\n            animation: spin .6s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n    to {-webkit-transform: rotate(360deg);transform: rotate(360deg);}\r\n}\r\n\r\n@keyframes spin {\r\n    to {-webkit-transform: rotate(360deg);transform: rotate(360deg);}\r\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/loader/loader.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"loading\">\n  <div class=\"spinner\"></div>\n</div>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/loader/loader.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var LoaderComponent = (function () {
-    function LoaderComponent() {
-    }
-    LoaderComponent.prototype.ngOnInit = function () {
-    };
-    return LoaderComponent;
-}());
-LoaderComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-loader',
-        template: __webpack_require__("../../../../../src/app/components/loader/loader.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/loader/loader.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], LoaderComponent);
-
-//# sourceMappingURL=loader.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/loader/loader.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loader_component__ = __webpack_require__("../../../../../src/app/components/loader/loader.component.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var LoaderModule = (function () {
-    function LoaderModule() {
-    }
-    return LoaderModule;
-}());
-LoaderModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
-        ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__loader_component__["a" /* LoaderComponent */]],
-        exports: [__WEBPACK_IMPORTED_MODULE_2__loader_component__["a" /* LoaderComponent */]]
-    })
-], LoaderModule);
-
-//# sourceMappingURL=loader.module.js.map
-
-/***/ }),
-
 /***/ "../../../../../src/app/components/login/login.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1904,10 +1907,6 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
-    /**
-     * Log in user
-     * @param model
-     */
     LoginComponent.prototype.login = function (model) {
         var _this = this;
         this.error = '';
@@ -1951,14 +1950,12 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__loader_loader_module__ = __webpack_require__("../../../../../src/app/components/loader/loader.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -1974,8 +1971,7 @@ LoginModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_5__loader_loader_module__["a" /* LoaderModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_4__login_component__["a" /* LoginComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_4__login_component__["a" /* LoginComponent */]]
@@ -1994,7 +1990,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container-fluid {\r\n    padding-right: 40px;\r\n}\r\n\r\n.navbar {\r\n    background-color: #fff;\r\n    opacity: 1;\r\n    height: 60px;\r\n    border-radius: 0;\r\n    margin: auto;\r\n    top: -60px;\r\n    width: 100%;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\na.navbar-brand {\r\n    font-weight: 700;\r\n    font-size: 25px;\r\n    height: 40px;\r\n    color: red;\r\n    margin-left: 10px !important;\r\n}\r\n\r\n.navbar-toggle {\r\n    margin-top: 15px;\r\n    margin-right: 0;\r\n    border: 0;\r\n}\r\n\r\n.navbar-toggle:hover {\r\n    background-color: #000;\r\n}\r\n\r\n.navbar-toggle .icon-bar {\r\n    background-color: #000;\r\n}\r\n\r\n.navbar-toggle:hover .icon-bar {\r\n    background-color: #FFF;\r\n}\r\n\r\na {\r\n    padding: 10px !important;\r\n    margin-top: 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\na:hover {\r\n    border-radius: 4px;\r\n    border: 1px solid red;\r\n    background-color: red !important;\r\n    color: #FFF !important;\r\n}\r\n\r\n.dropdown-menu {\r\n    left: 30px;\r\n    right: 0px;\r\n    text-align: center;\r\n}\r\n\r\n.dropdown-menu>li>a {\r\n    color: #337ab7;\r\n}\r\n\r\n.dropdown-toggle {\r\n    margin-top: 12px;\r\n    border: 0;\r\n    background-color: red;\r\n    color: #fff;\r\n}\r\n\r\n#dropdownMenu1 {\r\n    width: 100%;\r\n    border-radius: 0;\r\n}\r\n    \r\nul {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\n\r\nul.dropdown-menu {\r\n    padding-top: 0;\r\n    padding-bottom: 0;\r\n}\r\n\r\nul.dropdown-menu li a {\r\n    margin-top: 0;\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    #bs-example-navbar-collapse-1 {\r\n        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n        background-color: #FFF;\r\n        border: 1px solid #f2f2f2;\r\n        border-bottom: 0;\r\n        z-index: 500;\r\n        top: 60px;\r\n        position: absolute;\r\n        right: 30px;\r\n        width: 250px;\r\n        text-align: center;\r\n        padding-bottom: 0;\r\n    }\r\n\r\n    ul li a {\r\n        margin-top: 0;\r\n    }\r\n\r\n    .dropdown-toggle {\r\n        margin-top: 0;\r\n    }\r\n\r\n    #author {\r\n        padding-left: 0;\r\n    }\r\n\r\n    a:hover {\r\n        border-radius: 0;\r\n        border: 1px solid red;\r\n        background-color: red !important;\r\n        color: #FFF !important;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 576px) {\r\n    #bs-example-navbar-collapse-1 {\r\n        width: 93%;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".container-fluid {\r\n    padding-right: 40px;\r\n}\r\n\r\n.navbar {\r\n    background-color: #fff;\r\n    opacity: 1;\r\n    height: 60px;\r\n    border-radius: 0;\r\n    margin: auto;\r\n    top: -60px;\r\n    width: 100%;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n}\r\n\r\na.navbar-brand {\r\n    font-weight: 700;\r\n    font-size: 25px;\r\n    height: 40px;\r\n    color: red;\r\n    margin-left: 10px !important;\r\n}\r\n\r\n.navbar-toggle {\r\n    margin-top: 15px;\r\n    margin-right: 0;\r\n    border: 0;\r\n}\r\n\r\n.navbar-toggle:hover {\r\n    background-color: #000;\r\n}\r\n\r\n.navbar-toggle .icon-bar {\r\n    background-color: #000;\r\n}\r\n\r\n.navbar-toggle:hover .icon-bar {\r\n    background-color: #FFF;\r\n}\r\n\r\na {\r\n    padding: 10px !important;\r\n    margin-top: 10px;\r\n    border: 1px solid transparent;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n}\r\n\r\na:hover {\r\n    border-radius: 4px;\r\n    border: 1px solid red;\r\n    background-color: red !important;\r\n    color: #FFF !important;\r\n}\r\n\r\n.dropdown-menu {\r\n    left: 30px;\r\n    right: 0px;\r\n    text-align: center;\r\n}\r\n\r\n.dropdown-menu>li>a {\r\n    color: #337ab7;\r\n}\r\n\r\n.dropdown-toggle {\r\n    margin-top: 12px;\r\n    border: 0;\r\n    background-color: red;\r\n    color: #fff;\r\n}\r\n\r\n#dropdownMenu1 {\r\n    width: 100%;\r\n    border-radius: 0;\r\n}\r\n    \r\nul {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\n\r\nul.dropdown-menu {\r\n    padding-top: 0;\r\n    padding-bottom: 0;\r\n}\r\n\r\nul.dropdown-menu li a {\r\n    margin-top: 0;\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    #bs-example-navbar-collapse-1 {\r\n        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\r\n        background-color: #FFF;\r\n        border: 1px solid #f2f2f2;\r\n        border-bottom: 0;\r\n        z-index: 500;\r\n        top: 60px;\r\n        position: absolute;\r\n        right: 30px;\r\n        width: 250px;\r\n        text-align: center;\r\n        padding-bottom: 0;\r\n    }\r\n\r\n    ul li a {\r\n        margin-top: 0;\r\n    }\r\n\r\n    .dropdown-toggle {\r\n        margin-top: 0;\r\n    }\r\n\r\n    #author {\r\n        padding-left: 0;\r\n    }\r\n\r\n    a:hover {\r\n        border-radius: 0;\r\n        border: 1px solid red;\r\n        background-color: red !important;\r\n        color: #FFF !important;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 576px) {\r\n    #bs-example-navbar-collapse-1 {\r\n        width: 93%;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -2251,7 +2247,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"signupForm\" (ngSubmit)=\"signup(signupForm.value)\">\r\n  <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n  <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n  <div class=\"alertError\" [hidden]=\"!username.dirty || !username.invalid\">\r\n    <p [hidden]=\"!username.hasError('inValidUsername')\">Invalid Username. Username must contain only letters, numbers and underscores</p>\r\n  </div>\r\n  <input type=\"email\" name=\"email\" id=\"email\" [formControl]=\"email\" placeholder=\"Email address\">\r\n  <div class=\"alertError\" [hidden]=\"!email.dirty || !email.invalid\">\r\n      <p [hidden]=\"!email.invalid && !email.hasError('inValidEmail')\">Invalid Email</p>\r\n    </div>\r\n  <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"!password.dirty || !password.invalid\">\r\n    <p [hidden]=\"!password.hasError('inValidPassword')\">Invalid Password. Password should contain atleast one number,\r\n      one lowercase and one uppercase letter and should be atleast 6 characters long.</p>\r\n  </div>\r\n  <input type=\"password\" name=\"rePassword\" id=\"rePassword\" [formControl]=\"rePassword\" \r\n  [ngClass]=\"{'ng-invalid': password.value !== rePassword.value}\" placeholder=\"Re-Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"(password.value === rePassword.value)\">\r\n    <p>Passwords don't match</p>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!signupForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Sign Up </button>\r\n  <br><br>\r\n  <p> Already a member? <a (click)=gotoLogin()>Log in here</a>.</p>\r\n</form>"
+module.exports = "<form [formGroup]=\"signupForm\" (ngSubmit)=\"signup(signupForm.value)\">\r\n  <p class=\"alertError\" *ngIf=\"error !== ''\">{{ error }}</p>\r\n  <input type=\"text\" name=\"username\" id=\"username\" [formControl]=\"username\" placeholder=\"User name\">\r\n  <div class=\"alertError\" [hidden]=\"!username.dirty || !username.invalid\">\r\n    <p [hidden]=\"!username.hasError('inValidUsername')\">Invalid Username. Username must contain only letters, numbers and underscores</p>\r\n  </div>\r\n  <input type=\"email\" name=\"email\" id=\"email\" [formControl]=\"email\" placeholder=\"Email address\">\r\n  <div class=\"alertError\" [hidden]=\"!email.dirty || !email.invalid\">\r\n      <p [hidden]=\"!email.invalid && !email.hasError('inValidEmail')\">Invalid Email</p>\r\n    </div>\r\n  <input type=\"password\" name=\"password\" id=\"password\" [formControl]=\"password\" placeholder=\"Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"!password.dirty || !password.invalid\">\r\n    <p [hidden]=\"!password.hasError('inValidPassword')\">Invalid Password. Password should contain atleast one number,\r\n      one lowercase and one uppercase letter and should be atleast 6 characters long.</p>\r\n  </div>\r\n  <input type=\"password\" name=\"rePassword\" id=\"rePassword\" [formControl]=\"rePassword\" \r\n  [ngClass]=\"{'ng-invalid': password.value !== rePassword.value}\" placeholder=\"Re-Enter password\">\r\n  <div class=\"alertError\" [hidden]=\"(password.value === rePassword.value)\">\r\n    <p>Passwords don't match</p>\r\n  </div>\r\n  <button type=\"submit\" [disabled]=\"!signupForm.valid\" class=\"modButton btn btn-primary btn-lg\"> Sign up</button>\r\n  <br><br>\r\n  <p> Already a member? <a (click)=gotoLogin()>Log in here</a>.</p>\r\n</form>"
 
 /***/ }),
 
@@ -2302,10 +2298,6 @@ var SignupComponent = (function () {
     }
     SignupComponent.prototype.ngOnInit = function () {
     };
-    /**
-     * Sign up user
-     * @param model
-     */
     SignupComponent.prototype.signup = function (model) {
         var _this = this;
         this.error = '';
@@ -2350,14 +2342,12 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__signup_component__ = __webpack_require__("../../../../../src/app/components/signup/signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__loader_loader_module__ = __webpack_require__("../../../../../src/app/components/loader/loader.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -2375,8 +2365,7 @@ SignupModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_6__loader_loader_module__["a" /* LoaderModule */]
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_5__signup_component__["a" /* SignupComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_5__signup_component__["a" /* SignupComponent */]]
@@ -2493,7 +2482,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    margin-bottom: 0;\r\n    padding-left: 15px;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}", ""]);
+exports.push([module.i, ".blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n    margin-bottom: 0;\r\n    padding-left: 15px;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}", ""]);
 
 // exports
 
@@ -2628,7 +2617,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    height: 200px;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.dropdown {\r\n    top: 20px;\r\n}\r\n\r\n.floatLeft {\r\n    float: left;\r\n}\r\n\r\n.floatRight {\r\n    float: right;\r\n}\r\n\r\n.clear {\r\n    clear: both;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".blogCard {\r\n    position: relative;\r\n    word-wrap: break-word;\r\n    width: 50%;\r\n    padding: 10px 20px;\r\n    margin: 10px 10px;\r\n    transition: all 0.3s cubic-bezier(.25,.8,.25,1);\r\n    cursor: pointer;\r\n    \r\n}\r\n\r\nh2 {\r\n    font-size: 20px;\r\n    text-align: left;\r\n}\r\n\r\n.blogs {\r\n    margin: 0 auto;\r\n    position: -webkit-sticky;\r\n    position: sticky;\r\n    top: 10px;\r\n}\r\n\r\n.dropdown {\r\n    top: 20px;\r\n}\r\n\r\n.floatLeft {\r\n    float: left;\r\n}\r\n\r\n.floatRight {\r\n    float: right;\r\n}\r\n\r\n.clear {\r\n    clear: both;\r\n}\r\n\r\n.blogCard:hover {\r\n    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);\r\n}\r\n\r\n@media screen and (max-width: 1170px){\r\n    .blogCard {\r\n        width: 100%; \r\n        margin: 10px auto;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 991px){\r\n    \r\n    .blogs {\r\n        padding-left: 15px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 767px) {\r\n    .blogs {\r\n        position: relative;\r\n    }\r\n}\r\n\r\n.foot {\r\n    color: #666565;\r\n    text-align: left;\r\n    padding-top: 20px;\r\n    padding-left: 15px;\r\n}\r\n\r\n.foot p:nth-child(1){\r\n    margin-bottom: 10px;\r\n    font-weight: 700;\r\n    color: royalblue;\r\n}\r\n\r\n.message {\r\n    font-size: 50px;\r\n    padding: 10px;\r\n}\r\n\r\n@media screen and (max-width: 760px) {\r\n    .message {\r\n        font-size: 30px;\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 400px) {\r\n    h2 {\r\n        font-size: 20px;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -2709,12 +2698,14 @@ var UserComponent = (function () {
      */
     UserComponent.prototype.deleteBlog = function (blog_id) {
         var _this = this;
-        this.blog.deleteBlog(blog_id).subscribe(function (value) {
-            if (value) {
-                _this.getBlogsByUser(_this.auth.username);
-                _this.alert.success("Blog deleted", true);
-            }
-        });
+        if (window.confirm('Are you sure you want to delete this blog')) {
+            this.blog.deleteBlog(blog_id).subscribe(function (value) {
+                if (value) {
+                    _this.getBlogsByUser(_this.auth.username);
+                    _this.alert.success("Blog deleted", true);
+                }
+            });
+        }
     };
     /**
      * Go to edit page
